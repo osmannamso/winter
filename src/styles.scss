@@ -1,1 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import "styles/fonts";
+@import "styles/icons";
+
+html, body {
+  margin: 0;
+  height: 100%;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: 'Product Sans', serif;
+}
+
+button {
+  cursor: pointer;
+}
+
+.container {
+  width: 1240px;
+  min-width: 1240px;
+  margin: 0 auto;
+}

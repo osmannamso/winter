@@ -1,0 +1,11 @@
+.icon {
+  display: inline-block;
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  &.i-list-bullet {
+    background-image: url("/assets/icons/list-bullet.svg");
+    width: 14px;
+    height: 14px;
+  }
+}

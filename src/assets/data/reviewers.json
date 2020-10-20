@@ -1,0 +1,23 @@
+[
+  {
+    "name": "Tony Stark",
+    "avatar": "https://i1.sndcdn.com/avatars-000635920869-0p9rs0-t500x500.jpg",
+    "text": "Шикарнейшая камера, которая ставит на лопатки все смартфоны в ценовой категории до 25 000 (и даже выше) – но нужно поставить GCAM, благо здесь для этого никаких манипуляций не нужно, работает из коробки.",
+    "logo": "https://www.shareicon.net/data/256x256/2016/02/07/715556_logo_512x512.png",
+    "job": "Инженер"
+  },
+  {
+    "name": "Black Widow",
+    "avatar": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/412dcb7c-3831-4329-b94a-8551655acb08/d4cxe8d-7a548d6e-6e5a-4a3d-9ca7-1c2cce1051ab.jpg/v1/fill/w_200,h_200,q_75,strp/scarlett_johansson_avatar_icon_by_fr1stys_d4cxe8d-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3siaGVpZ2h0IjoiPD0yMDAiLCJwYXRoIjoiXC9mXC80MTJkY2I3Yy0zODMxLTQzMjktYjk0YS04NTUxNjU1YWNiMDhcL2Q0Y3hlOGQtN2E1NDhkNmUtNmU1YS00YTNkLTljYTctMWMyY2NlMTA1MWFiLmpwZyIsIndpZHRoIjoiPD0yMDAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.Im-0FBdFva4C9Z2bJaRa-Nohk5rPnqCCCD-zyCDegYI",
+    "text": "Высокая производительность как в играх  так и в приложениях (многие сейчас весьма требовательны), такого плавного скроллинга даже на тяжелых сайтах еще пару лет назад и не на каждом флагмане встречал.",
+    "logo": "https://www.shareicon.net/data/256x256/2015/09/22/105752_shield_512x512.png",
+    "job": "Модель"
+  },
+  {
+    "name": "Scarlet Witch",
+    "avatar": "https://avatarfiles.alphacoders.com/139/139827.jpg",
+    "text": "Высокое время автономной работы – 4000mAh – плюс программисты Xiaomi сотворили чудо, т.к. все думали, что смартфон на Snapdragon 660 может работать столько же, сколько и смарт на 710ом с такой же батареей.",
+    "logo": "https://i.pinimg.com/originals/12/e4/d8/12e4d8059bcc09c0391ccf5854b68b37.png",
+    "job": "Художник"
+  }
+]

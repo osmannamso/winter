@@ -1,0 +1,121 @@
+<div class="main-top-cover">
+  <img src="/assets/images/logo.png" />
+  <h1>Организация <span>командировок</span> для сотрудников вашей компании</h1>
+  <div class="auth-buttons">
+    <button type="button" class="reg-btn">Зарегистрироваться</button>
+    <button type="button" class="log-btn">Войти</button>
+  </div>
+</div>
+<div class="work-advantages-cover">
+  <div class="advantages-text">
+    <h3>
+      <span>Преимущества</span> работы
+    </h3>
+    <h5>Разгружаем работу вашего отдела поездок и HR</h5>
+    <p>
+      <span class="icon i-list-bullet"></span> Обеспечиваем покупку билетов и трансфер.
+    </p>
+    <p>
+      <span class="icon i-list-bullet"></span> Берем на себя договоры с местами размещения.
+    </p>
+    <p>
+      <span class="icon i-list-bullet"></span> Предоставляем услуги консьерж-сервиса.
+    </p>
+    <h5>Гарантируем и упрощаем процесс оплаты по услугам</h5>
+    <p>
+      <span class="icon i-list-bullet"></span> Оптимизируем ваши расходы на командировки.
+    </p>
+    <p>
+      <span class="icon i-list-bullet"></span> Возможна отсрочка платежа для проверенных клиентов.
+    </p>
+    <p>
+      <span class="icon i-list-bullet"></span> Зафиксируем все расходы и выставим один счет.
+    </p>
+  </div>
+</div>
+<div class="reviews-cover">
+  <h2>Отзывы</h2>
+  <div class="review-items-cover">
+    <div *ngFor="let reviewer of reviewers" class="review-item">
+      <div class="review-top">
+        <img [src]="reviewer.avatar" />
+        <div class="review-top-right">
+          <h6>{{ reviewer.name }}</h6>
+          <p>{{ reviewer.job }}</p>
+        </div>
+      </div>
+      <div class="reviewer-text">
+        {{ reviewer.text }}
+      </div>
+      <img [src]="reviewer.logo" class="review-logo" />
+    </div>
+  </div>
+</div>
+<div class="how-works-cover">
+  <h2>Как это работает</h2>
+  <div class="how-works-items-cover">
+    <ng-container *ngFor="let howWorkItem of howWorkItems; let first = first">
+      <img *ngIf="!first" src="/assets/icons/arrow-right.svg" class="arrow-img" />
+      <div class="how-works-item">
+        <img [src]="howWorkItem.image" />
+        <p>{{ howWorkItem.text }}</p>
+      </div>
+    </ng-container>
+  </div>
+</div>
+<div class="opportunities-cover">
+  <h2>Возможности</h2>
+  <div class="opportunities-cover-items">
+    <div class="opportunities-left">
+      <div class="opportunity-logo">
+        <div class="opportunity-circle"><img src="/assets/images/manager-opportunity.png" /></div>
+        <h5>Для руководителей</h5>
+        <p>
+          Прозрачная отчетность всех расходов <span class="icon i-list-bullet"></span>
+        </p>
+        <p>
+          Выгрузка документов и отправка на почту <span class="icon i-list-bullet"></span>
+        </p>
+        <p>
+          Сокращение расходов на 30% за счет лучших цен <span class="icon i-list-bullet"></span>
+        </p>
+      </div>
+    </div>
+    <div class="opportunities-right">
+      <div class="opportunity-logo">
+        <div class="opportunity-circle"><img src="/assets/images/teamwork-opportunity.png" /></div>
+        <h5>Для руководителей</h5>
+        <p>
+          <span class="icon i-list-bullet"></span> Маршрутный лист для командировки
+        </p>
+        <p>
+          <span class="icon i-list-bullet"></span>  Гарантия качественных услуг от исполнителей
+        </p>
+        <p>
+          <span class="icon i-list-bullet"></span> Не нужно возиться с кучей чеков
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="apartment-cover">
+  <h2>Проживание в апартаментах</h2>
+  <h5>Помимо гостиниц Pillowz работает с более 1500 апартаментами по Казахстану. Проживание в апартаментах во время деловых поездок становится всемирный трендом.</h5>
+  <div class="apartment-pluses-cover">
+    <div class="apartment-plus-item">
+      <img src="/assets/images/bath.png" />
+      <p class="apartment-title">Комфортные условия</p>
+      <p class="apartment-text">Гостиничный сервис с домашним уютом</p>
+    </div>
+    <div class="apartment-plus-item">
+      <img src="/assets/images/reputation.png" />
+      <p class="apartment-title">Репутация</p>
+      <p class="apartment-text">Только проверенные арендодатели и жилье</p>
+    </div>
+    <div class="apartment-plus-item">
+      <img src="/assets/images/shield.png" />
+      <p class="apartment-title">Безопасность</p>
+      <p class="apartment-text">В домах соблюдаются все стандарты безопасности</p>
+    </div>
+  </div>
+</div>
