@@ -1,0 +1,58 @@
+@import "src/styles/theming";
+
+.modal-overall {
+  padding: 24px;
+  width: 350px;
+  background-color: map-get($purple-palette, 100);
+}
+
+.modal-header {
+  .switcher-cover {
+    width: 100%;
+    background-color: $white;
+    padding: 3px;
+    border-radius: 4px;
+
+    .switcher-item {
+      width: 50%;
+      border-radius: 4px;
+      padding: 7px;
+      background-color: transparent;
+      border: none;
+      outline: none;
+
+      &.active {
+        background-color: map-get($purple-palette, 500);
+        color: $white;
+      }
+    }
+  }
+}
+
+.modal-body {
+  .auth-cover {
+    margin-top: 20px;
+
+    input {
+      width: 100%;
+      padding: 7px 10px;
+      border-radius: 4px;
+      border: 1px solid map-get($gray-palette, 400);
+      background-color: $white;
+
+      &:not(:first-child) {
+        margin-top: 10px;
+      }
+    }
+
+    button {
+      margin-top: 15px;
+      width: 100%;
+      border-radius: 25px;
+      padding: 9px;
+      border: none;
+      background-color: map-get($purple-palette, 500);
+      color: $white;
+    }
+  }
+}
