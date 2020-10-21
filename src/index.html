@@ -6,8 +6,41 @@
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
   <app-root></app-root>
 </body>
+<script src="https://api-maps.yandex.ru/2.1?apikey=bd8c7c93-1efb-4c76-9d10-d4989dcd4920&load=package.full&lang=ru_RU"></script>
+<script type="text/javascript">
+  ymaps.ready(function () {
+    const myMap = new ymaps.Map('YMapsID', {
+      center: [43.238293, 76.921776],
+      zoom: 13
+    });
+    const MyIconContentLayout = ymaps.templateLayoutFactory.createClass(
+      '<div style="color: #FFFFFF; font-weight: bold;">$[properties.iconContent]</div>'
+    );
+    const placemark = new ymaps.Placemark([43.238293, 76.921776], {
+      balloonContent: 'Здесь мы'
+    }, {
+      iconLayout: 'default#imageWithContent',
+      // Custom image for the placemark icon.
+      iconImageHref: '/assets/images/logo-placemark.png',
+      // The size of the placemark.
+      iconImageSize: [48, 48],
+      /**
+       * The offset of the upper left corner of the icon relative
+       * to its "tail" (the anchor point).
+       */
+      iconImageOffset: [-24, -24],
+      // Offset of the layer with content relative to the layer with the image.
+      iconContentOffset: [15, 15],
+      // Content layout.
+      iconContentLayout: MyIconContentLayout
+    });
+    myMap.geoObjects.add(placemark);
+  });
+</script>
 </html>

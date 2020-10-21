@@ -1,0 +1,1 @@
+export enum AUTH_STATES {LOGIN, REGISTRATION}

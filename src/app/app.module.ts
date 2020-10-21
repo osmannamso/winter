@@ -5,6 +5,8 @@ import {AppRoutingModule} from './app-routing.module';
 import {ClientComponent} from './modules/client/client.component';
 import {HttpClientModule} from '@angular/common/http';
 import {ClientModule} from './modules/client/client.module';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import {UiKitModule} from './modules/ui-kit.module';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import {ClientModule} from './modules/client/client.module';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ClientModule
+    ClientModule,
+    NoopAnimationsModule,
+    UiKitModule
   ],
   providers: [],
   bootstrap: [AppComponent]

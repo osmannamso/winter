@@ -2,6 +2,7 @@
 
 @import "styles/fonts";
 @import "styles/icons";
+@import "styles/variables";
 
 html, body {
   margin: 0;
@@ -21,4 +22,11 @@ button {
   width: 1240px;
   min-width: 1240px;
   margin: 0 auto;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+mat-dialog-container.mat-dialog-container {
+  padding: 0;
 }

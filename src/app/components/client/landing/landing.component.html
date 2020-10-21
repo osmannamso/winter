@@ -2,8 +2,8 @@
   <img src="/assets/images/logo.png" />
   <h1>Организация <span>командировок</span> для сотрудников вашей компании</h1>
   <div class="auth-buttons">
-    <button type="button" class="reg-btn">Зарегистрироваться</button>
-    <button type="button" class="log-btn">Войти</button>
+    <button type="button" (click)="openAuthModal(authStates.REGISTRATION)" class="reg-btn">Зарегистрироваться</button>
+    <button type="button" (click)="openAuthModal(authStates.LOGIN)" class="log-btn">Войти</button>
   </div>
 </div>
 <div class="work-advantages-cover">
@@ -33,67 +33,69 @@
     </p>
   </div>
 </div>
-<div class="reviews-cover">
-  <h2>Отзывы</h2>
-  <div class="review-items-cover">
-    <div *ngFor="let reviewer of reviewers" class="review-item">
-      <div class="review-top">
-        <img [src]="reviewer.avatar" />
-        <div class="review-top-right">
-          <h6>{{ reviewer.name }}</h6>
-          <p>{{ reviewer.job }}</p>
+<div class="container">
+  <div class="reviews-cover">
+    <h2>Отзывы</h2>
+    <div class="review-items-cover">
+      <div *ngFor="let reviewer of reviewers" class="review-item">
+        <div class="review-top">
+          <img [src]="reviewer.avatar" />
+          <div class="review-top-right">
+            <h6>{{ reviewer.name }}</h6>
+            <p>{{ reviewer.job }}</p>
+          </div>
+        </div>
+        <div class="reviewer-text">
+          {{ reviewer.text }}
+        </div>
+        <img [src]="reviewer.logo" class="review-logo" />
+      </div>
+    </div>
+  </div>
+  <div class="how-works-cover">
+    <h2>Как это работает</h2>
+    <div class="how-works-items-cover">
+      <ng-container *ngFor="let howWorkItem of howWorkItems; let first = first">
+        <img *ngIf="!first" src="/assets/icons/arrow-right.svg" class="arrow-img" />
+        <div class="how-works-item">
+          <img [src]="howWorkItem.image" />
+          <p>{{ howWorkItem.text }}</p>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+  <div class="opportunities-cover">
+    <h2>Возможности</h2>
+    <div class="opportunities-cover-items">
+      <div class="opportunities-left">
+        <div class="opportunity-logo">
+          <div class="opportunity-circle"><img src="/assets/images/manager-opportunity.png" /></div>
+          <h5>Для руководителей</h5>
+          <p>
+            Прозрачная отчетность всех расходов <span class="icon i-list-bullet"></span>
+          </p>
+          <p>
+            Выгрузка документов и отправка на почту <span class="icon i-list-bullet"></span>
+          </p>
+          <p>
+            Сокращение расходов на 30% за счет лучших цен <span class="icon i-list-bullet"></span>
+          </p>
         </div>
       </div>
-      <div class="reviewer-text">
-        {{ reviewer.text }}
-      </div>
-      <img [src]="reviewer.logo" class="review-logo" />
-    </div>
-  </div>
-</div>
-<div class="how-works-cover">
-  <h2>Как это работает</h2>
-  <div class="how-works-items-cover">
-    <ng-container *ngFor="let howWorkItem of howWorkItems; let first = first">
-      <img *ngIf="!first" src="/assets/icons/arrow-right.svg" class="arrow-img" />
-      <div class="how-works-item">
-        <img [src]="howWorkItem.image" />
-        <p>{{ howWorkItem.text }}</p>
-      </div>
-    </ng-container>
-  </div>
-</div>
-<div class="opportunities-cover">
-  <h2>Возможности</h2>
-  <div class="opportunities-cover-items">
-    <div class="opportunities-left">
-      <div class="opportunity-logo">
-        <div class="opportunity-circle"><img src="/assets/images/manager-opportunity.png" /></div>
-        <h5>Для руководителей</h5>
-        <p>
-          Прозрачная отчетность всех расходов <span class="icon i-list-bullet"></span>
-        </p>
-        <p>
-          Выгрузка документов и отправка на почту <span class="icon i-list-bullet"></span>
-        </p>
-        <p>
-          Сокращение расходов на 30% за счет лучших цен <span class="icon i-list-bullet"></span>
-        </p>
-      </div>
-    </div>
-    <div class="opportunities-right">
-      <div class="opportunity-logo">
-        <div class="opportunity-circle"><img src="/assets/images/teamwork-opportunity.png" /></div>
-        <h5>Для руководителей</h5>
-        <p>
-          <span class="icon i-list-bullet"></span> Маршрутный лист для командировки
-        </p>
-        <p>
-          <span class="icon i-list-bullet"></span>  Гарантия качественных услуг от исполнителей
-        </p>
-        <p>
-          <span class="icon i-list-bullet"></span> Не нужно возиться с кучей чеков
-        </p>
+      <div class="opportunities-right">
+        <div class="opportunity-logo">
+          <div class="opportunity-circle"><img src="/assets/images/teamwork-opportunity.png" /></div>
+          <h5>Для руководителей</h5>
+          <p>
+            <span class="icon i-list-bullet"></span> Маршрутный лист для командировки
+          </p>
+          <p>
+            <span class="icon i-list-bullet"></span>  Гарантия качественных услуг от исполнителей
+          </p>
+          <p>
+            <span class="icon i-list-bullet"></span> Не нужно возиться с кучей чеков
+          </p>
+        </div>
       </div>
     </div>
   </div>
@@ -118,4 +120,89 @@
       <p class="apartment-text">В домах соблюдаются все стандарты безопасности</p>
     </div>
   </div>
+</div>
+<div class="container">
+  <div class="additional-cover">
+    <img src="/assets/images/hotel.png" />
+    <div class="additional-right">
+      <h2>
+        Дополнительные <span>услуги</span>
+      </h2>
+      <p class="m-t-50">
+        <span class="icon i-list-bullet"></span> Трансфер до мест размещения по городу.
+      </p>
+      <p>
+        <span class="icon i-list-bullet"></span> Консьерж-услуги от представителей.
+      </p>
+      <p>
+        <span class="icon i-list-bullet"></span> Поддержка через call-центр 24/7.
+      </p>
+      <p>
+        <span class="icon i-list-bullet"></span> Организация мероприятий под ключ.
+      </p>
+      <p>
+        <span class="icon i-list-bullet"></span> Проведение тимбилдингов.
+      </p>
+    </div>
+  </div>
+  <div class="partners-cover">
+    <div class="partners-left">
+      <h2>
+        Нам <span>доверяют</span>
+      </h2>
+      <div class="partners-list">
+        <img src="https://i.insider.com/5dcc3df979d7570d633e10ea?width=1100&format=jpeg&auto=webp" />
+        <img src="https://pmcvariety.files.wordpress.com/2020/07/amber-heard-1.jpg?w=681&h=383&crop=1" />
+        <img src="https://i.insider.com/593ec1cf80f0bb1f008b46ed?width=1100&format=jpeg&auto=webp" />
+        <img src="https://tvkinoradio.ru/upload/images/Article/99/a0/24/99a02433ea19b85ec027b01e87ea1254.jpg" />
+        <img src="https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/08/07/08/jessica-alba-0.jpg?width=982&height=726" />
+        <img src="https://bstars.ru/media/djcatalog2/images/item/17/jennifer-lawrence_f.jpg" />
+      </div>
+    </div>
+    <div class="partners-right">
+      <h2>
+        Наши <span>партнеры</span>
+      </h2>
+      <div class="partners-list">
+        <img src="https://i.insider.com/5dcc3df979d7570d633e10ea?width=1100&format=jpeg&auto=webp" />
+        <img src="https://pmcvariety.files.wordpress.com/2020/07/amber-heard-1.jpg?w=681&h=383&crop=1" />
+        <img src="https://i.insider.com/593ec1cf80f0bb1f008b46ed?width=1100&format=jpeg&auto=webp" />
+        <img src="https://tvkinoradio.ru/upload/images/Article/99/a0/24/99a02433ea19b85ec027b01e87ea1254.jpg" />
+        <img src="https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/08/07/08/jessica-alba-0.jpg?width=982&height=726" />
+        <img src="https://bstars.ru/media/djcatalog2/images/item/17/jennifer-lawrence_f.jpg" />
+      </div>
+    </div>
+  </div>
+</div>
+<div class="map-cover">
+  <div class="request-cover">
+    <form>
+      <h3>Оставьте заявку и мы <span>с вами свяжемся!</span></h3>
+      <label>
+        Название компнии
+        <input type="text" />
+      </label>
+      <label>
+        Имя
+        <input type="text" />
+      </label>
+      <label>
+        Номер телефона
+        <input type="text" />
+      </label>
+      <label>
+        Эл. почта
+        <input type="text" />
+      </label>
+      <button type="submit">Отправить</button>
+    </form>
+    <div class="request-bottom">
+      <a href="tel: +77470940501" class="with-tel">
+        <img src="/assets/images/phone-call.png" />
+        +7 (747) 094 05 01
+      </a>
+      <a class="with-offer">Оферта</a>
+    </div>
+  </div>
+  <div id="YMapsID" class="yandex-map"></div>
 </div>

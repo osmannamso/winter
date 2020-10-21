@@ -3,6 +3,9 @@ import {Reviewer} from '../../../shared/interfaces/reviewer';
 import {take} from 'rxjs/operators';
 import {SiteDataService} from '../../../services/site-data.service';
 import {HowWorksItem} from '../../../shared/interfaces/how-works-item';
+import {MatDialog} from '@angular/material/dialog';
+import {AuthModalComponent} from '../../../shared/modals/auth-modal/auth-modal.component';
+import {AUTH_STATES} from '../../../values/variables';
 
 @Component({
   selector: 'app-landing',
@@ -12,9 +15,12 @@ import {HowWorksItem} from '../../../shared/interfaces/how-works-item';
 export class LandingComponent implements OnInit {
   reviewers: Array<Reviewer>;
   howWorkItems: Array<HowWorksItem>;
+  
+  authStates = AUTH_STATES;
 
   constructor(
-    private siteDataService: SiteDataService
+    private siteDataService: SiteDataService,
+    private dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -32,5 +38,11 @@ export class LandingComponent implements OnInit {
       .subscribe((data) => {
         this.howWorkItems = data;
       });
+  }
+
+  openAuthModal(authState: AUTH_STATES): void {
+    this.dialog.open(AuthModalComponent, {
+      data: {authState}
+    });
   }
 }
