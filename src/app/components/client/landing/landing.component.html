@@ -2,8 +2,8 @@
   <img src="/assets/images/logo.png" />
   <h1>Организация <span>командировок</span> для сотрудников вашей компании</h1>
   <div class="auth-buttons">
-    <button type="button" (click)="openAuthModal(authStates.REGISTRATION)" class="reg-btn">Зарегистрироваться</button>
-    <button type="button" (click)="openAuthModal(authStates.LOGIN)" class="log-btn">Войти</button>
+    <button type="button" (click)="scrollToRequest()" class="reg-btn">Зарегистрироваться</button>
+    <button type="button" (click)="openAuthModal()" class="log-btn">Войти</button>
   </div>
 </div>
 <div class="work-advantages-cover">
@@ -175,7 +175,7 @@
   </div>
 </div>
 <div class="map-cover">
-  <div class="request-cover">
+  <div [id]="requestHtmlElementId" class="request-cover">
     <form>
       <h3>Оставьте заявку и мы <span>с вами свяжемся!</span></h3>
       <label>

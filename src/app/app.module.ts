@@ -7,11 +7,15 @@ import {HttpClientModule} from '@angular/common/http';
 import {ClientModule} from './modules/client/client.module';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import {UiKitModule} from './modules/ui-kit.module';
+import {UserComponent} from './modules/user/user.component';
+import {UserModule} from './modules/user/user.module';
+import {AuthGuard} from './shared/guards/auth.guard';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ClientComponent
+    ClientComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
@@ -19,9 +23,12 @@ import {UiKitModule} from './modules/ui-kit.module';
     HttpClientModule,
     ClientModule,
     NoopAnimationsModule,
+    UserModule,
     UiKitModule
   ],
-  providers: [],
+  providers: [
+    AuthGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

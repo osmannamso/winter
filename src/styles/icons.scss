@@ -8,4 +8,46 @@
     width: 14px;
     height: 14px;
   }
+
+  &.i-notifications {
+    background-image: url("/assets/icons/notifications.svg");
+    width: 14px;
+    height: 14px;
+  }
+
+  &.i-settings {
+    background-image: url("/assets/icons/settings.svg");
+    width: 16px;
+    height: 16px;
+  }
+
+  &.i-wallet {
+    background-image: url("/assets/icons/wallet.svg");
+    width: 16px;
+    height: 16px;
+  }
+
+  &.i-plus-green {
+    background-image: url("/assets/icons/plus-green.svg");
+    width: 24px;
+    height: 24px;
+  }
+
+  &.i-calendar {
+    background-image: url("/assets/icons/calendar.svg");
+    width: 15px;
+    height: 16px;
+  }
+
+  &.i-placemark {
+    background-image: url("/assets/icons/placemark.svg");
+    width: 12px;
+    height: 16px;
+  }
+
+  &.i-expand-arrow {
+    background-image: url("/assets/icons/expand-arrow.svg");
+    width: 24px;
+    height: 24px;
+  }
 }

@@ -1,0 +1,127 @@
+@import "src/styles/theming";
+
+.request-btn {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  color: $white;
+  font-size: 17px;
+  margin-top: 20px;
+
+  span {
+    margin-right: 15px;
+  }
+}
+
+.request-cover {
+  border-radius: 20px;
+  overflow: hidden;
+  background-color: map-get($purple-palette, 900);
+  margin-top: 25px;
+}
+
+.request-top {
+  padding: 25px 32px;
+  display: flex;
+  justify-content: space-between;
+
+  .request-left {
+    .request-employee-count {
+      font-size: 24px;
+      color: $white;
+
+      span {
+        display: inline-block;
+        margin-left: 25px;
+        color: map-get($purple-palette, 700);
+        font-size: 13px;
+
+        b {
+          color: $white;
+        }
+      }
+    }
+
+    .request-date-location {
+      margin-top: 20px;
+      color: $white;
+      display: flex;
+      align-items: center;
+
+      .i-calendar {
+        margin-right: 10px;
+      }
+
+      .i-placemark {
+        margin-left: 20px;
+        margin-right: 10px;
+      }
+    }
+  }
+
+  .request-right {
+    .request-status {
+      font-size: 24px;
+      color: $white;
+      display: flex;
+      align-items: center;
+
+      span {
+        display: inline-block;
+        color: map-get($purple-palette, 700);
+        font-size: 13px;
+        margin-left: auto;
+      }
+    }
+
+    .request-progress {
+      display: flex;
+      background-color: map-get($purple-palette, 950);
+      width: 280px;
+      height: 12px;
+      border-radius: 25px;
+      margin-top: 10px;
+      padding: 1px;
+
+      .first-progress {
+        border-radius: 25px 0 0 25px;
+        background: linear-gradient(180deg, #89D24F 0%, #63A431 100%);
+        width: 20%;
+        height: 10px;
+      }
+
+      .middle-progress {
+        background: linear-gradient(180deg, #89D24F 0%, #63A431 100%);
+        width: 20%;
+        height: 10px;
+        margin-left: 2px;
+      }
+    }
+  }
+}
+
+.request-bottom {
+  border-top: 1px solid $background-purple;
+  text-align: center;
+  padding: 15px;
+  color: map-get($purple-palette, 700);
+
+  &.expand-offers {
+    border-top: none;
+    background: linear-gradient(0deg, #303673, #303673), linear-gradient(180deg, rgba(0, 0, 0, 0.13) 0%, rgba(0, 0, 0, 0.06) 100%), #3C4390;
+  }
+
+  .expand-btn {
+    background-color: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+    margin: auto;
+    color: $white;
+
+    span {
+      margin-right: 10px;
+    }
+  }
+}

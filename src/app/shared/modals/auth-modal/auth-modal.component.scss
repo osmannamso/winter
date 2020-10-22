@@ -7,25 +7,10 @@
 }
 
 .modal-header {
-  .switcher-cover {
-    width: 100%;
-    background-color: $white;
-    padding: 3px;
-    border-radius: 4px;
-
-    .switcher-item {
-      width: 50%;
-      border-radius: 4px;
-      padding: 7px;
-      background-color: transparent;
-      border: none;
-      outline: none;
-
-      &.active {
-        background-color: map-get($purple-palette, 500);
-        color: $white;
-      }
-    }
+  h2 {
+    text-align: center;
+    margin: 0;
+    font-size: 18px;
   }
 }
 

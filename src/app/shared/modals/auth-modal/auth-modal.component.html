@@ -1,22 +1,14 @@
 <div class="modal-overall">
   <div class="modal-header">
-    <div class="switcher-cover">
-      <button type="button" (click)="changeAuthState(authStates.REGISTRATION)" class="switcher-item" [class.active]="authState == authStates.REGISTRATION">Регистрация</button>
-      <button type="button" (click)="changeAuthState(authStates.LOGIN)" class="switcher-item" [class.active]="authState == authStates.LOGIN">Вход</button>
-    </div>
+    <h2>Вход</h2>
   </div>
   <div class="modal-body">
-    <ng-container [ngSwitch]="authState">
-      <div *ngSwitchCase="authStates.REGISTRATION" class="auth-cover">
-        log
-      </div>
-      <div *ngSwitchCase="authStates.LOGIN" class="auth-cover">
-        <form>
-          <input type="text" placeholder="+7 (000) 000 00 00" />
-          <input type="password" placeholder="Password" />
-          <button type="submit" class="auth-btn">Войти</button>
-        </form>
-      </div>
-    </ng-container>
+    <div class="auth-cover">
+      <form>
+        <input type="text" placeholder="+7 (000) 000 00 00" />
+        <input type="password" placeholder="Password" />
+        <button type="submit" class="auth-btn">Войти</button>
+      </form>
+    </div>
   </div>
 </div>
