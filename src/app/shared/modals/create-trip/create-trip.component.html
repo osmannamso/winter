@@ -1,0 +1,59 @@
+<div class="modal-overall">
+  <div class="modal-header">
+    <h2>Новая поездка: <span>шаг 1/3</span></h2>
+    <button type="button" class="close-btn">
+      <span class="icon i-cross"></span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="input-fields">
+      <label>
+        <input type="text" placeholder="Откуда" />
+        <span class="">страна, город, аэропорт, вокзал</span>
+      </label>
+      <label>
+        <input type="text" placeholder="Куда" />
+        <span class="">страна, город, аэропорт, вокзал</span>
+      </label>
+      <label>
+        <input type="datetime-local" placeholder="Когда" />
+      </label>
+      <label class="back-way">
+        <input *ngIf="twoWay" type="datetime-local" placeholder="Когда" />
+        <label>
+          <input type="checkbox" [(ngModel)]="twoWay" />
+          <span>обратный билет</span>
+        </label>
+      </label>
+    </div>
+    <div class="trip-options">
+      <label class="custom-checkbox">
+        <input type="radio" [(ngModel)]="tripOption" name="trip-option" [value]="tripOptions.AIRPLANE" />
+        <span class="icon i-airplane"></span>
+        Самолет
+      </label>
+      <label class="custom-checkbox m-l-50">
+        <input type="radio" [(ngModel)]="tripOption" name="trip-option" [value]="tripOptions.TRAIN" />
+        <span class="icon i-train"></span>
+        Поезд
+      </label>
+      <label class="m-l-50 one-way">
+        <input type="checkbox" />
+        Прямой рейс
+      </label>
+    </div>
+    <div class="ticket-class">
+      <label>
+        <input type="radio" [(ngModel)]="ticketClass" name="ticket-class" [value]="ticketClasses.ECONOMIC"/>
+        эконом
+      </label>
+      <label class="m-l-25">
+        <input type="radio" [(ngModel)]="ticketClass" name="ticket-class" [value]="ticketClasses.BUSINESS"/>
+        бизнес
+      </label>
+    </div>
+    <div class="next-cover">
+      <button type="button" class="next-step-btn">Следующий шаг</button>
+    </div>
+  </div>
+</div>

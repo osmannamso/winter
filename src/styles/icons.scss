@@ -50,4 +50,30 @@
     width: 24px;
     height: 24px;
   }
+
+  &.i-cross {
+    background-image: url("/assets/icons/cross.svg");
+    width: 16px;
+    height: 16px;
+  }
+
+  &.i-train {
+    background-image: url("/assets/icons/train.svg");
+    width: 14px;
+    height: 16px;
+
+    &.active {
+      background-image: url("/assets/icons/train-active.svg");
+    }
+  }
+
+  &.i-airplane {
+    background-image: url("/assets/icons/airplane.svg");
+    width: 16px;
+    height: 16px;
+
+    &.active {
+      background-image: url("/assets/icons/airplane-active.svg");
+    }
+  }
 }

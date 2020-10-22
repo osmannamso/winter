@@ -1,0 +1,161 @@
+@import "src/styles/theming";
+
+* {
+  font-weight: 300;
+}
+
+.modal-overall {
+  border-radius: 20px;
+  background-color: map-get($purple-palette, 950);
+  padding: 25px 40px;
+  width: 700px;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+
+  h2 {
+    margin: 0;
+    font-size: 24px;
+    color: $white;
+
+    span {
+      color: map-get($purple-palette, 700);
+    }
+  }
+
+  .close-btn {
+    background-color: transparent;
+    border: none;
+  }
+}
+
+.modal-body {
+  .input-fields {
+    display: flex;
+    flex-wrap: wrap;
+
+    label {
+      flex: 1 1 45%;
+      margin-top: 15px;
+
+      input[type=text], input[type=datetime-local] {
+        border: none;
+        background-color: transparent;
+        color: $white;
+        font-size: 16px;
+        width: 90%;
+        padding: 3px 0;
+        outline: none;
+        border-bottom: 1px solid map-get($purple-palette, 700);
+      }
+
+      input[type=datetime-local] {
+        width: 50%;
+
+        &::-webkit-calendar-picker-indicator {
+          filter: invert(1);
+        }
+      }
+
+      span {
+        display: block;
+        font-size: 13px;
+        color: map-get($purple-palette, 700);
+      }
+
+      &.back-way {
+        input[type=datetime-local] {
+          margin-right: 10px;
+        }
+
+        label {
+          display: inline-block;
+          margin-top: 0;
+        }
+
+        span {
+          display: inline-block;
+          margin-left: 5px;
+          color: $white;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+
+  .trip-options {
+    display: flex;
+    align-items: center;
+    margin-top: 30px;
+
+    .one-way {
+      color: $white;
+    }
+
+    .custom-checkbox {
+      display: flex;
+      align-items: center;
+      color: $white;
+
+      input[type=radio] {
+        display: none;
+
+        &:checked+.icon {
+          background-color: map-get($purple-palette, 500);
+
+          &.i-airplane {
+            background-image: url("/assets/icons/airplane-active.svg");
+          }
+
+          &.i-train {
+            background-image: url("/assets/icons/train-active.svg");
+          }
+        }
+      }
+
+      .icon {
+        width: 40px;
+        height: 40px;
+        background-size: 16px 16px;
+        border-radius: 5px;
+        background-color: $background-purple;
+        background-position: center;
+        margin-right: 10px;
+      }
+    }
+  }
+
+  .ticket-class {
+    display: flex;
+    margin-top: 25px;
+    color: $white;
+
+    label {
+      display: flex;
+      align-items: center;
+
+      input[type=radio] {
+        width: 16px;
+        height: 16px;
+        margin-right: 10px;
+      }
+    }
+  }
+
+  .next-cover {
+    margin-top: 15px;
+    display: flex;
+
+    .next-step-btn {
+      padding: 13px 30px;
+      border-radius: 25px;
+      border: none;
+      font-size: 17px;
+      color: $white;
+      background-color: map-get($green-palette, 500);
+      margin-left: auto;
+    }
+  }
+}

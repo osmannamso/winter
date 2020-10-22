@@ -79,6 +79,6 @@ export class LandingComponent implements OnInit, AfterViewInit {
   }
 
   scrollToRequest(): void {
-    document.getElementById(REQUEST_HTML_ELEMENT_ID).scrollIntoView();
+    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
   }
 }

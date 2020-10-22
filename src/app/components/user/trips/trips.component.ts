@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {MatDialog} from '@angular/material/dialog';
+import {CreateTripComponent} from '../../../shared/modals/create-trip/create-trip.component';
 
 @Component({
   selector: 'app-trips',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TripsComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private dialog: MatDialog
+  ) { }
 
   ngOnInit(): void {
   }
 
+  openCreateTrip(): void {
+    this.dialog.open(CreateTripComponent);
+  }
 }

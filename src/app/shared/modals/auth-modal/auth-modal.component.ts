@@ -1,5 +1,4 @@
-import {Component, Inject, OnInit} from '@angular/core';
-import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-auth-modal',
@@ -7,10 +6,7 @@ import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
   styleUrls: ['./auth-modal.component.scss']
 })
 export class AuthModalComponent implements OnInit {
-  constructor(
-    public dialogRef: MatDialogRef<AuthModalComponent>,
-    @Inject(MAT_DIALOG_DATA) public data
-  ) { }
+  constructor() { }
 
   ngOnInit(): void {}
 }
