@@ -1,0 +1,40 @@
+<div class="modal-overall">
+  <div class="modal-header">
+    <h2>Новый сотрудник</h2>
+    <button type="button" (click)="close()" class="close-btn">
+      <span class="icon i-cross"></span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="main-info-cover">
+      <div class="inputs-cover m-w-30">
+        <label>
+          <input type="text" placeholder="Имя" class="no-border-input" />
+          <div class="input-tips">латинские буквы</div>
+        </label>
+        <label>
+          <input type="text" placeholder="Фамилия" class="no-border-input" />
+          <div class="input-tips">латинские буквы</div>
+        </label>
+        <label>
+          <input type="text" placeholder="Отчество" class="no-border-input" />
+          <div class="input-tips">латинские буквы</div>
+        </label>
+      </div>
+      <div class="additional-cover m-w-30">
+        <h4 class="gender-text">Пол</h4>
+        <label>
+          <input type="radio" name="gender" value="1" /> мужской
+        </label>
+        <label>
+          <input type="radio" name="gender" value="2" /> женский
+        </label>
+      </div>
+      <div class="avatar-cover m-w-30">
+        <label>
+          <input type="file" class="file-upload" />
+        </label>
+      </div>
+    </div>
+  </div>
+</div>

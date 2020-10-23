@@ -11,6 +11,7 @@ export class CreateTripComponent implements OnInit {
   twoWay = false;
   tripOption: TRIP_OPTIONS;
   ticketClass: TICKET_CLASSES;
+  step: 1 | 2 | 3 = 1;
 
   tripOptions = TRIP_OPTIONS;
   ticketClasses = TICKET_CLASSES;
@@ -25,5 +26,17 @@ export class CreateTripComponent implements OnInit {
 
   close(): void {
     this.dialogRef.close();
+  }
+
+  prevStep(): void {
+    this.step -= 1;
+  }
+
+  nextStep(): void {
+    if (this.step == 3) {
+      this.close();
+    } else {
+      this.step += 1;
+    }
   }
 }

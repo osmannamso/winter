@@ -1,0 +1,36 @@
+<button type="button" (click)="openCreateEmployee()" class="request-btn">
+  <span class="icon i-plus-green"></span> Добавить сотрудника
+</button>
+<div class="employees-cover">
+  <div *ngFor="let i of [1, 2, 3, 4, 5, 6, 7, 8]" class="employee-item">
+    <div class="employee-main">
+      <div class="employee-top">
+        <img src="https://i.pinimg.com/474x/97/46/5e/97465ec1f73b5d7dcbe4fda3b3282492.jpg" />
+        <div class="employee-info">
+          <div class="employee-name">
+            Стив Роджерс
+          </div>
+          <div class="employee-job">
+            Маркетолог
+          </div>
+        </div>
+      </div>
+      <div class="employee-body">
+        <div class="key-value">
+          <span>Тип документа:</span> паспорт
+        </div>
+        <div class="key-value">
+          <span>Страна выдачи:</span> Казахстан
+        </div>
+        <div class="key-value">
+          <span>Номер:</span> 956 79543
+        </div>
+      </div>
+    </div>
+    <div class="employee-bottom">
+      <button type="button" class="expand-btn">
+        <span class="icon i-expand-arrow"></span> Развернуть
+      </button>
+    </div>
+  </div>
+</div>

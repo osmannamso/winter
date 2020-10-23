@@ -1,19 +1,5 @@
 @import "src/styles/theming";
 
-.request-btn {
-  display: flex;
-  align-items: center;
-  background-color: transparent;
-  border: none;
-  color: $white;
-  font-size: 17px;
-  margin-top: 20px;
-
-  span {
-    margin-right: 15px;
-  }
-}
-
 .request-cover {
   border-radius: 20px;
   overflow: hidden;
@@ -110,18 +96,5 @@
   &.expand-offers {
     border-top: none;
     background: linear-gradient(0deg, #303673, #303673), linear-gradient(180deg, rgba(0, 0, 0, 0.13) 0%, rgba(0, 0, 0, 0.06) 100%), #3C4390;
-  }
-
-  .expand-btn {
-    background-color: transparent;
-    border: none;
-    display: flex;
-    align-items: center;
-    margin: auto;
-    color: $white;
-
-    span {
-      margin-right: 10px;
-    }
   }
 }

@@ -5,3 +5,30 @@ app-user {
   height: 100%;
   background-color: $background-purple;
 }
+
+.request-btn {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  color: $white;
+  font-size: 17px;
+  margin-top: 20px;
+
+  span {
+    margin-right: 15px;
+  }
+}
+
+.expand-btn {
+  background-color: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  margin: auto;
+  color: $white;
+
+  span {
+    margin-right: 10px;
+  }
+}
