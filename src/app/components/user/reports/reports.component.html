@@ -1,0 +1,25 @@
+<div class="filter-cover">
+  <label>
+    Фильтровать по:
+    <select>
+      <option selected>дате</option>
+    </select>
+  </label>
+</div>
+<div class="reports-cover">
+  <div class="table-headers">
+    <div class="report-field --date">Дата</div>
+    <div class="report-field --operation">Операция</div>
+    <div class="report-field --sum">Сумма</div>
+    <div class="report-field --documents">Документы</div>
+  </div>
+  <div *ngFor="let i of [1, 2, 3, 4, 5, 6, 7]" class="report-item">
+    <div class="report-field report-field --date">26.03.2019</div>
+    <div class="report-field report-field --operation">Организация деловой поездки</div>
+    <div class="report-field report-field --sum">28 000 ТГ</div>
+    <div class="report-field report-field --documents">
+      Счет на оплату
+      <span class="icon i-pdf-extension"></span>
+    </div>
+  </div>
+</div>

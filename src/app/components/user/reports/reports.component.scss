@@ -1,0 +1,63 @@
+@import "src/styles/theming";
+
+.filter-cover {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+
+  label {
+    color: $white;
+
+    select {
+      background-color: transparent;
+      border: none;
+      border-bottom: 1px dashed $white;
+      color: $white;
+    }
+  }
+}
+
+.reports-cover {
+  padding: 30px 30px 10px;
+  background-color: map-get($purple-palette, 900);
+  margin-top: 40px;
+  border-radius: 20px;
+
+  .table-headers {
+    display: flex;
+    color: $white;
+    margin-bottom: 20px;
+  }
+
+  .report-field {
+    &.--date {
+      width: 20%;
+    }
+
+    &.--operation {
+      width: 30%;
+    }
+
+    &.--sum {
+      width: 15%;
+    }
+
+    &.--documents {
+      width: 35%;
+      display: flex;
+      align-items: center;
+
+      .icon {
+        margin-left: 10px;
+      }
+    }
+  }
+
+  .report-item {
+    display: flex;
+    margin-top: 10px;
+    padding: 10px 0;
+    border-top: 1px solid map-get($purple-palette, 950);
+    color: map-get($purple-palette, 700);
+  }
+}

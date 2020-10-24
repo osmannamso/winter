@@ -6,13 +6,15 @@ import { CreateTripComponent } from '../../shared/modals/create-trip/create-trip
 import {FormsModule} from '@angular/forms';
 import { EmployeesComponent } from '../../components/user/employees/employees.component';
 import { CreateUserComponent } from '../../components/user/create-user/create-user.component';
+import { ReportsComponent } from '../../components/user/reports/reports.component';
 
 @NgModule({
   declarations: [
     TripsComponent,
     CreateTripComponent,
     EmployeesComponent,
-    CreateUserComponent
+    CreateUserComponent,
+    ReportsComponent
   ],
   imports: [
     CommonModule,
