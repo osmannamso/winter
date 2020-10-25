@@ -7,15 +7,42 @@
     </div>
     <img src="/assets/images/logo-white.png" />
     <div class="header-right">
-      <button type="button">
-        <span class="icon i-notifications"></span>
-      </button>
-      <button type="button">
+      <div #notificationDropdown>
+        <button type="button" (click)="toggleNotifications()">
+          <span class="icon i-notifications"></span>
+        </button>
+        <div *ngIf="isActiveNotifications" class="notifications-block">
+          <div class="notifications-cover">
+            <div *ngFor="let i of [1, 2, 3, 4, 5, 6]" class="notification-item">
+              <div class="notification-date">26.03.2019 11:40</div>
+              <div class="notification-status">Заявка отправлена</div>
+              <div class="notification-text">Ваша заявка была отправлена и ожидает рассмотрения.</div>
+            </div>
+          </div>
+          <div class="notifications-bottom">
+            <button type="button" class="more-btn">Показать все</button>
+          </div>
+        </div>
+      </div>
+      <button type="button" class="m-l-20">
         <span class="icon i-settings"></span>
       </button>
-      <button type="button">
-        <span class="icon i-wallet"></span>
-      </button>
+      <div class="m-l-20" #walletDropdown>
+        <button type="button" (click)="toggleWallet()">
+          <span class="icon i-wallet"></span>
+        </button>
+        <div *ngIf="isActiveWallet" class="wallet-cover">
+          <div class="wallet-text">
+            Баланс компании
+          </div>
+          <form>
+            <label>
+              <input type="text" placeholder="Введите сумму" class="pay-input" required />
+              <button type="submit" class="pay-btn">Пополнить</button>
+            </label>
+          </form>
+        </div>
+      </div>
       <div class="wallet-amount">12 333 ТГ</div>
     </div>
   </div>
