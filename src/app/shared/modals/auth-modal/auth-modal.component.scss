@@ -1,4 +1,4 @@
-@import "src/styles/theming";
+@import "../../../../../library/assets/styles/theming";
 
 .modal-overall {
   padding: 24px;
@@ -41,3 +41,11 @@
     }
   }
 }
+
+@media (max-width: 679px) {
+  .modal-overall {
+    width: 100%;
+    margin: 0;
+  }
+}
+

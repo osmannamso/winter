@@ -1,19 +1,19 @@
 import {AfterViewInit, Component, OnInit} from '@angular/core';
-import {Reviewer} from '../../../shared/interfaces/reviewer';
+import {Reviewer} from '../../../../../../../src/app/shared/interfaces/reviewer';
+import {HowWorksItem} from '../../../../../../../src/app/shared/interfaces/how-works-item';
 import {take} from 'rxjs/operators';
-import {SiteDataService} from '../../../services/site-data.service';
-import {HowWorksItem} from '../../../shared/interfaces/how-works-item';
+import {AuthModalComponent} from '../../../../../../../src/app/shared/modals/auth-modal/auth-modal.component';
+import {SiteDataService} from '../../../../../../../src/app/services/site-data.service';
 import {MatDialog} from '@angular/material/dialog';
-import {AuthModalComponent} from '../../../shared/modals/auth-modal/auth-modal.component';
 
 declare var ymaps: any;
 
 @Component({
-  selector: 'app-landing',
-  templateUrl: './landing.component.html',
-  styleUrls: ['./landing.component.scss']
+  selector: 'app-mobile-landing',
+  templateUrl: './mobile-landing.component.html',
+  styleUrls: ['./mobile-landing.component.scss']
 })
-export class LandingComponent implements OnInit, AfterViewInit {
+export class MobileLandingComponent implements OnInit, AfterViewInit {
   reviewers: Array<Reviewer>;
   howWorkItems: Array<HowWorksItem>;
 

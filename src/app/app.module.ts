@@ -10,6 +10,7 @@ import {UiKitModule} from './modules/ui-kit.module';
 import {UserComponent} from './modules/user/user.component';
 import {UserModule} from './modules/user/user.module';
 import {AuthGuard} from './shared/guards/auth.guard';
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import {AuthGuard} from './shared/guards/auth.guard';
     AppRoutingModule,
     HttpClientModule,
     ClientModule,
+    MatDialogModule,
     NoopAnimationsModule,
     UserModule,
     UiKitModule

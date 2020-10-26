@@ -1,4 +1,4 @@
-@import "src/styles/theming";
+@import "../../../../../library/assets/styles/theming";
 
 * {
   color: map-get($purple-palette, 600);
@@ -414,6 +414,7 @@
         &.with-offer {
           margin-top: 15px;
           text-decoration: underline;
+          color: map-get($purple-palette, 500);
         }
       }
     }

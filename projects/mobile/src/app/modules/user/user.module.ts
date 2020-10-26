@@ -1,11 +1,13 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
+import {MobileUserRoutingModule} from './user-routing.module';
 
 @NgModule({
   declarations: [],
   imports: [
-    CommonModule
+    CommonModule,
+    MobileUserRoutingModule
   ],
   exports: []
 })
-export class UiKitModule {}
+export class MobileUserModule {}

@@ -24,12 +24,20 @@
             "tsConfig": "tsconfig.app.json",
             "aot": true,
             "assets": [
-              "src/favicon.ico",
-              "src/assets"
+              {
+                "glob": "favicon.ico",
+                "input": "./library/assets",
+                "output": "/assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "./library/assets",
+                "output": "/assets/"
+              }
             ],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
-              "src/styles.scss"
+              "library/assets/styles.scss"
             ],
             "scripts": []
           },
@@ -89,12 +97,20 @@
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
             "assets": [
-              "src/favicon.ico",
-              "src/assets"
+              {
+                "glob": "favicon.ico",
+                "input": "./library/assets",
+                "output": "/assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "./library/assets",
+                "output": "/assets/"
+              }
             ],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
-              "src/styles.scss"
+              "library/assets/styles.scss"
             ],
             "scripts": []
           }
@@ -121,6 +137,145 @@
           "configurations": {
             "production": {
               "devServerTarget": "corp:serve:production"
+            }
+          }
+        }
+      }
+    },
+    "mobile": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/mobile",
+      "sourceRoot": "projects/mobile/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/mobile",
+            "index": "projects/mobile/src/index.html",
+            "main": "projects/mobile/src/main.ts",
+            "polyfills": "projects/mobile/src/polyfills.ts",
+            "tsConfig": "projects/mobile/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              {
+                "glob": "favicon.ico",
+                "input": "./library/assets",
+                "output": "/assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "./library/assets",
+                "output": "/assets/"
+              }
+            ],
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "library/assets/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/mobile/src/environments/environment.ts",
+                  "with": "projects/mobile/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "mobile:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "mobile:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "mobile:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/mobile/src/test.ts",
+            "polyfills": "projects/mobile/src/polyfills.ts",
+            "tsConfig": "projects/mobile/tsconfig.spec.json",
+            "karmaConfig": "projects/mobile/karma.conf.js",
+            "assets": [
+              {
+                "glob": "favicon.ico",
+                "input": "./library/assets",
+                "output": "/assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "./library/assets",
+                "output": "/assets/"
+              }
+            ],
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "library/assets/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/mobile/tsconfig.app.json",
+              "projects/mobile/tsconfig.spec.json",
+              "projects/mobile/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/mobile/e2e/protractor.conf.js",
+            "devServerTarget": "mobile:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "mobile:serve:production"
             }
           }
         }

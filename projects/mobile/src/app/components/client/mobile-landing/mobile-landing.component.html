@@ -1,0 +1,185 @@
+<div class="first-cover">
+  <img src="/assets/images/logo.png" />
+  <h1>
+    Организация <span>командировок</span>
+    для сотрудников вашей компании
+  </h1>
+  <button type="button" (click)="scrollToRequest()" class="reg-btn">Зарегистрироваться</button>
+  <button type="button" (click)="openAuthModal()" class="log-btn">Войти</button>
+</div>
+<div class="second-cover">
+  <h2>
+    <span>Преимущества</span> работы
+  </h2>
+  <p class="advantage-head-text">Разгружаем работу вашего отдела поездок и HR</p>
+  <p class="advantage-bullet-text">
+    <span class="icon i-list-bullet"></span> Обеспечиваем покупку билетов и трансфер
+  </p>
+  <p class="advantage-bullet-text">
+    <span class="icon i-list-bullet"></span> Берем на себя договорыс местами размещения
+  </p>
+  <p class="advantage-bullet-text">
+    <span class="icon i-list-bullet"></span> Предоставляем услуги консьерж-сервиса
+  </p>
+  <p class="advantage-head-text">Гарантируем и упрощаем процесс оплаты по услугам</p>
+  <p class="advantage-bullet-text">
+    <span class="icon i-list-bullet"></span> Оптимизируем ваши расходы на командировки
+  </p>
+  <p class="advantage-bullet-text">
+    <span class="icon i-list-bullet"></span> Возможна отсрочка платежа для проверенных клиентов
+  </p>
+  <p class="advantage-bullet-text">
+    <span class="icon i-list-bullet"></span> Зафиксируем все расходы и выставим один счет
+  </p>
+</div>
+<div class="third-cover">
+  <h2>Отзывы</h2>
+  <div *ngFor="let reviewer of reviewers" class="review-item">
+    <div class="review-top">
+      <img [src]="reviewer.avatar" />
+      <div class="review-top-right">
+        <h6>{{ reviewer.name }}</h6>
+        <p>{{ reviewer.job }}</p>
+      </div>
+    </div>
+    <div class="reviewer-text">
+      {{ reviewer.text }}
+    </div>
+    <img [src]="reviewer.logo" class="review-logo" />
+  </div>
+</div>
+<div class="fourth-cover">
+  <h2>Как это работает</h2>
+  <div *ngFor="let howWorkItem of howWorkItems; let first = first" class="how-works-item">
+    <img [src]="howWorkItem.image" />
+    <p>{{ howWorkItem.text }}</p>
+  </div>
+</div>
+<div class="fifth-cover">
+  <h2>Возможности</h2>
+  <div class="opportunity-cover">
+    <img src="/assets/images/manager-opportunity.png" />
+    <h3>Для руководителей</h3>
+    <p class="opportunity-bullet-text">
+      <span class="icon i-list-bullet"></span> Прозрачная отчетность всех расходов
+    </p>
+    <p class="opportunity-bullet-text">
+      <span class="icon i-list-bullet"></span> Выгрузка документов и отправка на почту
+    </p>
+    <p class="opportunity-bullet-text">
+      <span class="icon i-list-bullet"></span> Сокращение расходов на 30% за счет лучших цен
+    </p>
+  </div>
+  <div class="opportunity-cover">
+    <img src="/assets/images/manager-opportunity.png" />
+    <h3>Для сотрудников</h3>
+    <p class="opportunity-bullet-text">
+      <span class="icon i-list-bullet"></span> Маршрутный лист для командировки
+    </p>
+    <p class="opportunity-bullet-text">
+      <span class="icon i-list-bullet"></span> Гарантия качественных услуг от исполнителей
+    </p>
+    <p class="opportunity-bullet-text">
+      <span class="icon i-list-bullet"></span> Не нужно возиться с кучей чеков
+    </p>
+  </div>
+</div>
+<div class="sixth-cover">
+  <h2>Проживание в апартаментах</h2>
+  <h5>Помимо гостиниц Pillowz работает с более 1500 апартаментами по Казахстану. Проживание в апартаментах во время деловых поездок становится всемирный трендом.</h5>
+  <div class="apartment-pluses-cover">
+    <div class="apartment-plus-item">
+      <img src="/assets/images/bath.png" />
+      <p class="apartment-title">Комфортные условия</p>
+      <p class="apartment-text">Гостиничный сервис с домашним уютом</p>
+    </div>
+    <div class="apartment-plus-item">
+      <img src="/assets/images/reputation.png" />
+      <p class="apartment-title">Репутация</p>
+      <p class="apartment-text">Только проверенные арендодатели и жилье</p>
+    </div>
+    <div class="apartment-plus-item">
+      <img src="/assets/images/shield.png" />
+      <p class="apartment-title">Безопасность</p>
+      <p class="apartment-text">В домах соблюдаются все стандарты безопасности</p>
+    </div>
+  </div>
+</div>
+<div class="seventh-cover">
+  <h2>
+    Дополнительные <span>услуги</span>
+  </h2>
+  <p class="m-t-30">
+    <span class="icon i-list-bullet"></span> Трансфер до мест размещения по городу.
+  </p>
+  <p>
+    <span class="icon i-list-bullet"></span> Консьерж-услуги от представителей.
+  </p>
+  <p>
+    <span class="icon i-list-bullet"></span> Поддержка через call-центр 24/7.
+  </p>
+  <p>
+    <span class="icon i-list-bullet"></span> Организация мероприятий под ключ.
+  </p>
+  <p>
+    <span class="icon i-list-bullet"></span> Проведение тимбилдингов.
+  </p>
+</div>
+<div class="partners-cover">
+  <div class="partners-left">
+    <h2>
+      Нам <span>доверяют</span>
+    </h2>
+    <div class="partners-list">
+      <img src="https://i.insider.com/5dcc3df979d7570d633e10ea?width=1100&format=jpeg&auto=webp" />
+      <img src="https://pmcvariety.files.wordpress.com/2020/07/amber-heard-1.jpg?w=681&h=383&crop=1" />
+      <img src="https://i.insider.com/593ec1cf80f0bb1f008b46ed?width=1100&format=jpeg&auto=webp" />
+      <img src="https://tvkinoradio.ru/upload/images/Article/99/a0/24/99a02433ea19b85ec027b01e87ea1254.jpg" />
+      <img src="https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/08/07/08/jessica-alba-0.jpg?width=982&height=726" />
+      <img src="https://bstars.ru/media/djcatalog2/images/item/17/jennifer-lawrence_f.jpg" />
+    </div>
+  </div>
+  <div class="partners-right">
+    <h2>
+      Наши <span>партнеры</span>
+    </h2>
+    <div class="partners-list">
+      <img src="https://i.insider.com/5dcc3df979d7570d633e10ea?width=1100&format=jpeg&auto=webp" />
+      <img src="https://pmcvariety.files.wordpress.com/2020/07/amber-heard-1.jpg?w=681&h=383&crop=1" />
+      <img src="https://i.insider.com/593ec1cf80f0bb1f008b46ed?width=1100&format=jpeg&auto=webp" />
+      <img src="https://tvkinoradio.ru/upload/images/Article/99/a0/24/99a02433ea19b85ec027b01e87ea1254.jpg" />
+      <img src="https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/08/07/08/jessica-alba-0.jpg?width=982&height=726" />
+      <img src="https://bstars.ru/media/djcatalog2/images/item/17/jennifer-lawrence_f.jpg" />
+    </div>
+  </div>
+</div>
+<div id="YMapsID" class="yandex-map"></div>
+<div class="request-cover">
+  <form>
+    <h3>Оставьте заявку и мы <span>с вами свяжемся!</span></h3>
+    <label>
+      Название компнии
+      <input type="text" />
+    </label>
+    <label>
+      Имя
+      <input type="text" />
+    </label>
+    <label>
+      Номер телефона
+      <input type="text" />
+    </label>
+    <label>
+      Эл. почта
+      <input type="text" />
+    </label>
+    <button type="submit">Отправить</button>
+  </form>
+  <div class="request-bottom">
+    <a href="tel: +77470940501" class="with-tel">
+      <img src="/assets/images/phone-call.png" />
+      +7 (747) 094 05 01
+    </a>
+    <a class="with-offer">Оферта</a>
+  </div>
+</div>

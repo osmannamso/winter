@@ -1,0 +1,350 @@
+@import "../../../../../../../library/assets/styles/theming";
+
+* {
+  font-weight: 300;
+}
+
+.first-cover {
+  width: 100%;
+  height: 100vh;
+  background-image: url("/assets/images/mobile-first.jpg");
+  padding: 40px 0;
+  text-align: center;
+
+  img {
+    height: 40px;
+  }
+
+  h1 {
+    font-size: 24px;
+    max-width: 320px;
+
+    span {
+      color: map-get($purple-palette, 500);
+    }
+  }
+
+  .reg-btn {
+    display: block;
+    margin: 170px auto 0;
+    background: linear-gradient(180deg, #808BBD 0%, #6676B8 100%);
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.32);
+    border-radius: 4px;
+    padding: 17px;
+    border: none;
+    font-size: 18px;
+    color: $white;
+    width: 250px;
+  }
+
+  .log-btn {
+    background-color: transparent;
+    border: none;
+    margin-top: 35px;
+    text-decoration: underline;
+    font-size: 18px;
+    color: $white;
+  }
+}
+
+.second-cover {
+  padding: 30px;
+
+  h2 {
+    font-size: 28px;
+    text-align: center;
+    margin: 0;
+
+    span {
+      color: map-get($purple-palette, 500);
+    }
+  }
+
+  .advantage-head-text {
+    font-size: 18px;
+    margin-top: 30px;
+  }
+
+  .advantage-bullet-text {
+    font-size: 14px;
+    color: map-get($gray-palette, 400);
+
+    span {
+      margin-right: 10px;
+    }
+  }
+}
+
+.third-cover {
+  padding: 10px 20px;
+
+  h2 {
+    font-size: 28px;
+    text-align: center;
+    margin: 0;
+    color: map-get($purple-palette, 500);
+  }
+
+  .review-item {
+    width: 100%;
+    margin-top: 10px;
+    padding: 20px;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.04);
+    border-radius: 24px;
+  }
+
+  .review-top {
+    display: flex;
+    align-items: center;
+
+    img {
+      width: 64px;
+      height: 64px;
+      border-radius: 24px;
+    }
+
+    .review-top-right {
+      margin-left: 25px;
+
+      h6 {
+        margin: 0;
+        font-size: 18px;
+      }
+
+      p {
+        margin: 0;
+        font-size: 15px;
+        color: map-get($gray-palette, 300);
+      }
+    }
+  }
+
+  .reviewer-text {
+    margin: 20px 0;
+    font-size: 15px;
+    color: map-get($gray-palette, 300);
+    font-style: italic;
+  }
+
+  .review-logo {
+    height: 40px;
+  }
+}
+
+.fourth-cover {
+  padding: 30px 0;
+
+  h2 {
+    font-size: 28px;
+    text-align: center;
+    margin: 10px 0 0;
+    color: map-get($purple-palette, 500);
+  }
+
+  .how-works-item {
+    text-align: center;
+    margin-top: 30px;
+
+    p {
+      width: 160px;
+      margin: 20px auto 0;
+      color: map-get($gray-palette, 400);
+      font-size: 14px;
+    }
+  }
+}
+
+.fifth-cover {
+  padding: 30px 20px;
+
+  h2 {
+    font-size: 28px;
+    text-align: center;
+    margin: 10px 0 0;
+    color: map-get($purple-palette, 500);
+  }
+
+  .opportunity-cover {
+    margin-top: 20px;
+
+    img {
+      display: block;
+      margin: auto;
+    }
+
+    h3 {
+      text-align: center;
+      font-size: 18px;
+    }
+
+    p {
+      color: map-get($gray-palette, 400);
+    }
+  }
+}
+
+.sixth-cover {
+  padding: 30px 20px;
+  background-image: url("/assets/images/room-dark-purple.jpg");
+  background-size: cover;
+
+  h2 {
+    font-size: 24px;
+    color: $white;
+    text-align: center;
+  }
+
+  h5 {
+    margin: 60px auto 0;
+    color: $white;
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .apartment-pluses-cover {
+    margin-top: 50px;
+
+    .apartment-plus-item {
+      text-align: center;
+      margin: 30px 0 0;
+
+      .apartment-title {
+        font-size: 18px;
+        color: $white;
+      }
+
+      .apartment-text {
+        color: map-get($purple-palette, 200);
+        width: 180px;
+        margin: auto;
+      }
+    }
+  }
+}
+
+.seventh-cover {
+  padding: 30px 20px;
+
+  h2 {
+    font-size: 28px;
+    text-align: center;
+    margin: 0;
+
+    span {
+      color: map-get($purple-palette, 500);
+    }
+  }
+
+  p {
+    color: map-get($gray-palette, 400);
+  }
+}
+
+.partners-cover {
+  padding: 30px 20px;
+
+  h2 {
+    font-size: 24px;
+
+    span {
+      color: map-get($purple-palette, 500);
+    }
+  }
+
+  .partners-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    img {
+      margin-top: 20px;
+      width: 40%;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+  }
+}
+
+.yandex-map {
+  width: 100%;
+  height: 250px;
+}
+
+.request-cover {
+  width: 100%;
+
+  h3 {
+    font-size: 18px;
+    text-align: center;
+    margin: 0;
+
+    span {
+      color: map-get($purple-palette, 500);
+    }
+  }
+
+  form {
+    border-radius: 8px 8px 0 0;
+    padding: 50px;
+    background-color: map-get($purple-palette, 100);
+    position: relative;
+
+    label {
+      font-size: 14px;
+      margin-top: 10px;
+      display: block;
+      color: map-get($purple-palette, 700);
+
+      input {
+        width: 100%;
+        margin-top: 10px;
+        padding: 8px 15px;
+        border: 1px solid map-get($gray-palette, 200);
+        border-radius: 8px;
+      }
+    }
+
+    button {
+      position: absolute;
+      bottom: -20px;
+      background: linear-gradient(180deg, #808BBD 0%, #6676B8 100%);
+      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.32);
+      border: none;
+      padding: 17px 45px;
+      left: 0;
+      right: 0;
+      margin: auto;
+      font-size: 17px;
+      color: $white;
+      border-radius: 4px;
+    }
+  }
+
+  .request-bottom {
+    background-color: map-get($purple-palette, 300);
+    padding: 40px 50px 20px;
+    border-radius: 0 0 8px 8px;
+
+    a {
+      display: block;
+      text-align: center;
+
+      &.with-tel {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+
+        img {
+          margin-right: 15px;
+        }
+      }
+
+      &.with-offer {
+        margin-top: 15px;
+        text-decoration: underline;
+        color: map-get($purple-palette, 500);
+      }
+    }
+  }
+}
