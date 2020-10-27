@@ -9,6 +9,7 @@ import {MobileClientModule} from './modules/client/client.module';
 import {HttpClientModule} from '@angular/common/http';
 import {MatDialogModule} from '@angular/material/dialog';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
+import {AuthGuard} from '../../../../src/app/shared/guards/auth.guard';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,9 @@ import {NoopAnimationsModule} from '@angular/platform-browser/animations';
     MobileUserModule,
     MobileClientModule
   ],
-  providers: [],
+  providers: [
+    AuthGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

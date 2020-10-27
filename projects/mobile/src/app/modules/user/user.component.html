@@ -1,1 +1,38 @@
-<p>user works!</p>
+<div class="header-cover">
+  <div class="arrow-left-cover">
+    <img src="/assets/icons/arrow-right.svg" />
+  </div>
+  <div class="route-text">Поездки</div>
+  <a class="notification-cover">
+    <span class="icon i-notifications"></span>
+  </a>
+</div>
+<div class="main-body">
+  <router-outlet></router-outlet>
+</div>
+<div class="tab-navigation">
+  <div class="navigation-item">
+    <a class="nav-btn">
+      <span class="icon i-wallet"></span>
+    </a>
+  </div>
+  <button type="button" (click)="toggleAdditionalMenu()" class="navigation-item --center">
+    <img src="/assets/icons/burger-menu.png" />
+  </button>
+  <div class="navigation-item">
+    <a class="nav-btn">
+      <span class="icon i-settings"></span>
+    </a>
+  </div>
+</div>
+<div class="additional-menu" [class.--show]="isActiveAdditionalMenu">
+  <a class="additional-menu-item">
+    Поездки
+  </a>
+  <a class="additional-menu-item">
+    Сотрудники
+  </a>
+  <a class="additional-menu-item">
+    Отчеты
+  </a>
+</div>
