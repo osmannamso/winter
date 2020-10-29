@@ -4,9 +4,14 @@
   </div>
   <div class="modal-body">
     <div class="auth-cover">
-      <form>
-        <input type="text" placeholder="+7 (000) 000 00 00" />
-        <input type="password" placeholder="Password" />
+      <form [formGroup]="loginForm" (ngSubmit)="login()">
+        <label>
+          <input type="text" formControlName="username" placeholder="+7 (000) 000 00 00" />
+        </label>
+        <label class="display-inline-block m-t-15 w-100">
+          <input type="password" formControlName="password" placeholder="Password" />
+        </label>
+        <div *ngIf="loginForm.hasError('incorrect')" class="form-error-cover">{{ loginForm.getError('incorrect') }}</div>
         <button type="submit" class="auth-btn">Войти</button>
       </form>
     </div>

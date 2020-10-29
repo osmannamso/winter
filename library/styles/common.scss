@@ -29,13 +29,14 @@ app-user {
   align-items: center;
   margin: auto;
   color: $white;
+  font-size: 16px;
 
   span {
     margin-right: 10px;
   }
 }
 
-app-create-trip, app-mobile-create-trip {
+app-create-trip, app-mobile-create-trip, app-trips {
   .progress-cover {
     .request-status {
       font-size: 24px;
@@ -603,6 +604,12 @@ app-create-user, app-mobile-create-user {
 .muted-text {
   font-size: 14px;
   color: map-get($purple-palette, 700);
+}
+
+.form-error-cover {
+  color: map-get($red-palette, 500);
+  margin-top: 5px;
+  font-size: 14px;
 }
 
 @media (max-width: 679px) {

@@ -1,4 +1,6 @@
 import {Component, ElementRef, HostListener, OnInit, ViewChild} from '@angular/core';
+import {UserService} from '../../services/user.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-user',
@@ -8,11 +10,16 @@ import {Component, ElementRef, HostListener, OnInit, ViewChild} from '@angular/c
 export class UserComponent implements OnInit {
   isActiveNotifications = false;
   isActiveWallet = false;
+  isActiveSettings = false;
 
   @ViewChild('notificationDropdown') notificationDropdown: ElementRef;
   @ViewChild('walletDropdown') walletDropdown: ElementRef;
+  @ViewChild('settingsDropdown') settingsDropdown: ElementRef;
 
-  constructor() { }
+  constructor(
+    private userService: UserService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
   }
@@ -26,6 +33,10 @@ export class UserComponent implements OnInit {
     if (!this.walletDropdown.nativeElement.contains(event.target)) {
       this.isActiveWallet = false;
     }
+
+    if (!this.settingsDropdown.nativeElement.contains(event.target)) {
+      this.isActiveSettings = false;
+    }
   }
 
   toggleNotifications(): void {
@@ -34,5 +45,15 @@ export class UserComponent implements OnInit {
 
   toggleWallet(): void {
     this.isActiveWallet = !this.isActiveWallet;
+  }
+
+  toggleSettings(): void {
+    this.isActiveSettings = !this.isActiveSettings;
+  }
+
+  logOut(): void {
+    this.router.navigate(['/']).then(() => {
+      this.userService.logOut();
+    });
   }
 }

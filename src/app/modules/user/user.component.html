@@ -8,7 +8,7 @@
     <img src="/assets/images/logo-white.png" />
     <div class="header-right">
       <div #notificationDropdown>
-        <button type="button" (click)="toggleNotifications()">
+        <button type="button" (click)="toggleNotifications()" class="dropdown-btn">
           <span class="icon i-notifications"></span>
         </button>
         <div *ngIf="isActiveNotifications" class="notifications-block">
@@ -20,15 +20,61 @@
             </div>
           </div>
           <div class="notifications-bottom">
-            <button type="button" class="more-btn">Показать все</button>
+            <button type="button" class="more-btn dropdown-btn">Показать все</button>
           </div>
         </div>
       </div>
-      <button type="button" class="m-l-20">
-        <span class="icon i-settings"></span>
-      </button>
+      <div class="m-l-20" #settingsDropdown>
+        <button type="button" (click)="toggleSettings()" class="dropdown-btn">
+          <span class="icon i-settings"></span>
+        </button>
+        <div *ngIf="isActiveSettings" class="settings-cover">
+          <div class="employees-cover">
+            <div class="employee-item">
+              <div class="employee-main">
+                <div class="employee-top">
+                  <img src="https://i.pinimg.com/474x/97/46/5e/97465ec1f73b5d7dcbe4fda3b3282492.jpg" />
+                  <div class="employee-info">
+                    <div class="employee-name">
+                      Стив Роджерс
+                    </div>
+                    <div class="employee-job">
+                      Маркетолог
+                    </div>
+                  </div>
+                </div>
+                <div class="employee-body">
+                  <h4 class="main-key">Профиль компании</h4>
+                  <div class="key-value">
+                    <span>Название компании:</span> Pillowz.Corp
+                  </div>
+                  <div class="key-value">
+                    <span>Реквизиты:</span> 34534112
+                  </div>
+                  <a routerLink="/user/change-company" class="muted-btn m-t-15">Редактировать</a>
+                  <h4 class="main-key">Доступ к кабинету</h4>
+                  <div class="key-value">
+                    <span>Пользователь:</span> Стив Роджерс
+                  </div>
+                  <div class="key-value">
+                    <span>Логин:</span> captainamerica
+                  </div>
+                  <div class="key-value">
+                    <span>Права:</span> Менеджер
+                  </div>
+                  <a routerLink="/user/give-access" class="muted-btn m-t-15">Добавить сотрудника</a>
+                </div>
+                <div class="display-flex justify-content-space-between m-t-30">
+                  <a routerLink="/user/change-password" class="green-btn">Сменить пароль</a>
+                  <button type="button" (click)="logOut()" class="no-background-btn">Выйти</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="m-l-20" #walletDropdown>
-        <button type="button" (click)="toggleWallet()">
+        <button type="button" (click)="toggleWallet()" class="dropdown-btn">
           <span class="icon i-wallet"></span>
         </button>
         <div *ngIf="isActiveWallet" class="wallet-cover">

@@ -5,6 +5,8 @@ import {SiteDataService} from '../../../services/site-data.service';
 import {HowWorksItem} from '../../../shared/interfaces/how-works-item';
 import {MatDialog} from '@angular/material/dialog';
 import {AuthModalComponent} from '../../../shared/modals/auth-modal/auth-modal.component';
+import {UserService} from '../../../services/user.service';
+import {Router} from '@angular/router';
 
 declare var ymaps: any;
 
@@ -19,7 +21,9 @@ export class LandingComponent implements OnInit, AfterViewInit {
 
   constructor(
     private siteDataService: SiteDataService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private userService: UserService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -72,7 +76,11 @@ export class LandingComponent implements OnInit, AfterViewInit {
   }
 
   openAuthModal(): void {
-    this.dialog.open(AuthModalComponent);
+    if (this.userService.isLoggedIn()) {
+      this.router.navigate(['/user/trips']);
+    } else {
+      this.dialog.open(AuthModalComponent);
+    }
   }
 
   scrollToRequest(): void {

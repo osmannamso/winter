@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'null'
+  apiUrl: 'https://admin.corp.byz-trip.kz/api/v1'
 };
 
 /*

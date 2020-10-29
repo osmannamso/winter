@@ -57,3 +57,5 @@ export const MOBILE_PAGES = {
     text: 'Изменить права сотрудника'
   }
 };
+
+export const PASSWORD_CHANGED_SUCCESS = 'Пароль успешно изменен!';

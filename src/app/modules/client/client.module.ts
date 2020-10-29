@@ -3,6 +3,7 @@ import {LandingComponent} from '../../components/client/landing/landing.componen
 import {CommonModule} from '@angular/common';
 import {AuthModalComponent} from '../../shared/modals/auth-modal/auth-modal.component';
 import {MatDialogModule} from '@angular/material/dialog';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -11,7 +12,9 @@ import {MatDialogModule} from '@angular/material/dialog';
   ],
   imports: [
     CommonModule,
-    MatDialogModule
+    MatDialogModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports: []
 })

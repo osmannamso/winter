@@ -5,6 +5,8 @@ import {take} from 'rxjs/operators';
 import {AuthModalComponent} from '../../../../../../../src/app/shared/modals/auth-modal/auth-modal.component';
 import {SiteDataService} from '../../../../../../../src/app/services/site-data.service';
 import {MatDialog} from '@angular/material/dialog';
+import {UserService} from '../../../../../../../src/app/services/user.service';
+import {Router} from '@angular/router';
 
 declare var ymaps: any;
 
@@ -19,7 +21,9 @@ export class MobileLandingComponent implements OnInit, AfterViewInit {
 
   constructor(
     private siteDataService: SiteDataService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private userService: UserService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -72,7 +76,11 @@ export class MobileLandingComponent implements OnInit, AfterViewInit {
   }
 
   openAuthModal(): void {
-    this.dialog.open(AuthModalComponent);
+    if (this.userService.isLoggedIn()) {
+      this.router.navigate(['/user/trips']);
+    } else {
+      this.dialog.open(AuthModalComponent);
+    }
   }
 
   scrollToRequest(): void {

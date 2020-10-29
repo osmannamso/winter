@@ -24,10 +24,6 @@
       border-radius: 4px;
       border: 1px solid map-get($gray-palette, 400);
       background-color: $white;
-
-      &:not(:first-child) {
-        margin-top: 10px;
-      }
     }
 
     button {

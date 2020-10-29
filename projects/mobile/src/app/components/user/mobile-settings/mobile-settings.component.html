@@ -13,7 +13,7 @@
         </div>
       </div>
       <div class="employee-body">
-        <h4 class="main-key">Доступ к кабинету</h4>
+        <h4 class="main-key">Профиль компании</h4>
         <div class="key-value">
           <span>Название компании:</span> Pillowz.Corp
         </div>
@@ -21,7 +21,7 @@
           <span>Реквизиты:</span> 34534112
         </div>
         <a routerLink="/user/change-company" class="muted-btn">Редактировать</a>
-        <h4 class="main-key">Профиль компании</h4>
+        <h4 class="main-key">Доступ к кабинету</h4>
         <div class="key-value">
           <span>Пользователь:</span> Стив Роджерс
         </div>
@@ -38,5 +38,5 @@
 </div>
 <div class="display-flex justify-content-space-between m-t-30">
   <a routerLink="/user/change-password" class="green-btn">Сменить пароль</a>
-  <button type="button" class="no-background-btn">Выйти</button>
+  <button type="button" (click)="logOut()" class="no-background-btn">Выйти</button>
 </div>

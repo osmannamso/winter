@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'null'
+  apiUrl: 'https://admin.corp.byz-trip.kz/api/v1'
 };
