@@ -10,6 +10,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {MatDialogModule} from '@angular/material/dialog';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {AuthGuard} from '../../../../src/app/shared/guards/auth.guard';
+import {RouterModule} from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import {AuthGuard} from '../../../../src/app/shared/guards/auth.guard';
     MatDialogModule,
     NoopAnimationsModule,
     MobileUserModule,
-    MobileClientModule
+    MobileClientModule,
+    RouterModule
   ],
   providers: [
     AuthGuard

@@ -1,4 +1,4 @@
-@import "../../../../../../library/assets/styles/theming";
+@import "../../../../../../library/styles/theming";
 
 .header-cover {
   display: flex;
@@ -66,6 +66,7 @@
     display: block;
     text-align: center;
     color: $white;
+    text-decoration: none;
     border-radius: 25px;
     background: linear-gradient(105.59deg, #7766E1 9.91%, #415DCB 89.09%);
     padding: 14px;

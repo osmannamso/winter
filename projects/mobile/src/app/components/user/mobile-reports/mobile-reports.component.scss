@@ -1,0 +1,32 @@
+@import "~library/styles/theming";
+
+.report-item {
+  margin-top: 16px;
+  background-color: map-get($purple-palette, 900);
+  padding: 30px;
+  border-radius: 25px;
+
+  .report-key-value {
+    color: map-get($purple-palette, 700);
+
+    &:not(:first-child) {
+      margin-top: 10px;
+    }
+
+    span {
+      color: $white;
+    }
+  }
+
+  .report-files {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    color: map-get($purple-palette, 700);
+    font-size: 14px;
+
+    span {
+      margin-right: 5px;
+    }
+  }
+}

@@ -1,0 +1,14 @@
+@import "~library/styles/theming";
+
+* {
+  font-weight: 300;
+}
+
+h4, label {
+  color: $white;
+}
+
+.green-btn {
+  display: block;
+  margin: 15px auto 0;
+}

@@ -1,4 +1,4 @@
-@import "../../../../../library/assets/styles/theming";
+@import "../../../../../library/styles/theming";
 
 .request-cover {
   border-radius: 20px;
@@ -42,46 +42,6 @@
       .i-placemark {
         margin-left: 20px;
         margin-right: 10px;
-      }
-    }
-  }
-
-  .request-right {
-    .request-status {
-      font-size: 24px;
-      color: $white;
-      display: flex;
-      align-items: center;
-
-      span {
-        display: inline-block;
-        color: map-get($purple-palette, 700);
-        font-size: 13px;
-        margin-left: auto;
-      }
-    }
-
-    .request-progress {
-      display: flex;
-      background-color: map-get($purple-palette, 950);
-      width: 280px;
-      height: 12px;
-      border-radius: 25px;
-      margin-top: 10px;
-      padding: 1px;
-
-      .first-progress {
-        border-radius: 25px 0 0 25px;
-        background: linear-gradient(180deg, #89D24F 0%, #63A431 100%);
-        width: 20%;
-        height: 10px;
-      }
-
-      .middle-progress {
-        background: linear-gradient(180deg, #89D24F 0%, #63A431 100%);
-        width: 20%;
-        height: 10px;
-        margin-left: 2px;
       }
     }
   }

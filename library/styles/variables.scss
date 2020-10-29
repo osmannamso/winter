@@ -2,12 +2,24 @@
   margin-top: 50px !important;
 }
 
+.m-t-15 {
+  margin-top: 15px !important;
+}
+
+.m-t-20 {
+  margin-top: 20px !important;
+}
+
 .m-t-30 {
   margin-top: 30px !important;
 }
 
 .m-l-50 {
   margin-left: 50px !important;
+}
+
+.m-l-10 {
+  margin-left: 10px !important;
 }
 
 .m-l-20 {
@@ -34,10 +46,22 @@
   width: 100% !important;
 }
 
-.m-t-15 {
-  margin-top: 15px !important;
-}
-
 .text-align-center {
   text-align: center;
+}
+
+.display-flex {
+  display: flex;
+}
+
+.display-block {
+  display: block;
+}
+
+.display-inline-block {
+  display: inline-block;
+}
+
+.justify-content-space-between {
+  justify-content: space-between;
 }

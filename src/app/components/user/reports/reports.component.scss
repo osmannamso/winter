@@ -1,21 +1,4 @@
-@import "../../../../../library/assets/styles/theming";
-
-.filter-cover {
-  display: flex;
-  justify-content: flex-end;
-  margin-top: 20px;
-
-  label {
-    color: $white;
-
-    select {
-      background-color: transparent;
-      border: none;
-      border-bottom: 1px dashed $white;
-      color: $white;
-    }
-  }
-}
+@import "../../../../../library/styles/theming";
 
 .reports-cover {
   padding: 30px 30px 10px;

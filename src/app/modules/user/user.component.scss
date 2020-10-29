@@ -1,4 +1,4 @@
-@import "../../../../library/assets/styles/theming";
+@import "../../../../library/styles/theming";
 
 .header {
   width: 100%;
@@ -37,86 +37,6 @@
       text-decoration: dashed;
       color: map-get($purple-palette, 800);
       border-bottom: 1px dashed map-get($purple-palette, 800);
-    }
-
-    .notifications-block {
-      position: absolute;
-      padding: 24px;
-      background-color: map-get($purple-palette, 900);
-      overflow: hidden;
-      top: 30px;
-      left: -105px;
-      border-radius: 20px;
-      width: 240px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-
-      .notifications-cover {
-        max-height: 250px;
-        overflow: auto;
-
-        .notification-item {
-          padding: 15px 0;
-
-          .notification-date {
-            color: map-get($purple-palette, 700);
-            font-size: 12px;
-          }
-
-          .notification-status {
-            color: $white;
-          }
-
-          .notification-text {
-            margin: 5px 0 0;
-            color: map-get($purple-palette, 700);
-          }
-        }
-      }
-
-      .notifications-bottom {
-        padding: 15px 0 0;
-        text-align: center;
-        border-top: 1px solid map-get($purple-palette, 950);
-
-        .more-btn {
-          font-size: 16px;
-          color: map-get($purple-palette, 700);
-        }
-      }
-    }
-
-    .wallet-cover {
-      position: absolute;
-      width: 290px;
-      padding: 25px 40px;
-      top: 30px;
-      background-color: map-get($purple-palette, 900);
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-      border-radius: 20px;
-      left: -25px;
-
-      .wallet-text {
-        color: $white;
-        font-size: 18px;
-      }
-
-      .pay-input {
-        margin-top: 14px;
-        background-color: transparent;
-        border: none;
-        border-bottom: 1px solid map-get($purple-palette, 700);
-        font-size: 16px;
-        color: $white;
-      }
-
-      .pay-btn {
-        width: 100%;
-        padding: 10px;
-        border-radius: 20px;
-        background-color: map-get($green-palette, 500);
-        margin-top: 15px;
-        color: $white;
-      }
     }
   }
 }

@@ -1,38 +1,42 @@
 <div class="header-cover">
   <div class="arrow-left-cover">
-    <img src="/assets/icons/arrow-right.svg" />
+    <a *ngIf="mobilePage ? mobilePage.backBtn : defaultMobilePage.backBtn" [routerLink]="mobilePage.backBtn">
+      <img src="/assets/icons/arrow-right.svg" alt="Arrow right" />
+    </a>
   </div>
-  <div class="route-text">Поездки</div>
-  <a class="notification-cover">
-    <span class="icon i-notifications"></span>
+  <div class="route-text">{{ mobilePage ? mobilePage.text : defaultMobilePage.text }}</div>
+  <a routerLink="/user/notifications" class="notification-cover">
+    <span class="icon i-notifications" [class.active]="mobilePage?.isNotification"></span>
   </a>
 </div>
-<div class="main-body">
+<div class="container">
   <router-outlet></router-outlet>
 </div>
-<div class="tab-navigation">
-  <div class="navigation-item">
-    <a class="nav-btn">
-      <span class="icon i-wallet"></span>
+<div #additionalMenu>
+  <div class="tab-navigation">
+    <div class="navigation-item">
+      <a routerLink="/user/balance" class="nav-btn">
+        <span class="icon i-wallet"></span>
+      </a>
+    </div>
+    <button type="button" (click)="toggleAdditionalMenu()" class="navigation-item --center">
+      <img src="/assets/icons/burger-menu.png" />
+    </button>
+    <div class="navigation-item">
+      <a routerLink="/user/settings" class="nav-btn">
+        <span class="icon i-settings"></span>
+      </a>
+    </div>
+  </div>
+  <div class="additional-menu" [class.--show]="isActiveAdditionalMenu">
+    <a routerLink="/user/trips" (click)="toggleAdditionalMenu()" class="additional-menu-item">
+      Поездки
+    </a>
+    <a routerLink="/user/employees" (click)="toggleAdditionalMenu()" class="additional-menu-item">
+      Сотрудники
+    </a>
+    <a routerLink="/user/reports" (click)="toggleAdditionalMenu()" class="additional-menu-item">
+      Отчеты
     </a>
   </div>
-  <button type="button" (click)="toggleAdditionalMenu()" class="navigation-item --center">
-    <img src="/assets/icons/burger-menu.png" />
-  </button>
-  <div class="navigation-item">
-    <a class="nav-btn">
-      <span class="icon i-settings"></span>
-    </a>
-  </div>
-</div>
-<div class="additional-menu" [class.--show]="isActiveAdditionalMenu">
-  <a class="additional-menu-item">
-    Поездки
-  </a>
-  <a class="additional-menu-item">
-    Сотрудники
-  </a>
-  <a class="additional-menu-item">
-    Отчеты
-  </a>
 </div>

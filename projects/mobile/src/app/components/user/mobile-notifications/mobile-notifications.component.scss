@@ -1,0 +1,10 @@
+@import "../../../../../../../library/styles/theming";
+
+.show-more-btn {
+  display: block;
+  margin: 20px auto 0;
+  background-color: transparent;
+  border: none;
+  color: map-get($purple-palette, 700);
+  font-size: 16px;
+}

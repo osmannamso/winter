@@ -1,0 +1,53 @@
+@import "../../../../../../../library/styles/theming";
+
+* {
+  font-weight: 300;
+}
+
+.request-btn {
+  margin: 16px auto 0;
+  width: fit-content;
+}
+
+.request-cover {
+  margin: 20px 0 0;
+  background-color: map-get($purple-palette, 900);
+  border-radius: 20px;
+  color: $white;
+
+  .request-top {
+    padding: 21px 24px;
+  }
+
+  h3 {
+    margin: 0;
+  }
+
+  .request-bottom {
+    border-top: 1px solid map-get($purple-palette, 950);
+    padding: 15px 24px;
+    text-align: center;
+
+    .request-status {
+      font-size: 13px;
+      color: map-get($purple-palette, 700);
+    }
+
+    .expand-btn {
+      .i-expand-arrow {
+        width: 21px;
+        height: 21px;
+      }
+    }
+  }
+
+  .progress-cover {
+    .request-progress {
+      width: 100%;
+    }
+
+    .request-status {
+      font-size: 18px;
+    }
+  }
+}

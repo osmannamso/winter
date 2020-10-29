@@ -1,0 +1,95 @@
+.icon {
+  display: inline-block;
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  &.i-list-bullet {
+    background-image: url("../assets/icons/list-bullet.svg");
+    width: 14px;
+    height: 14px;
+  }
+
+  &.i-notifications {
+    background-image: url("../assets/icons/notifications.svg");
+    width: 14px;
+    height: 14px;
+
+    &.active {
+      background-image: url("../assets/icons/notifications-green.svg");
+    }
+  }
+
+  &.i-settings {
+    background-image: url("../assets/icons/settings.svg");
+    width: 16px;
+    height: 16px;
+  }
+
+  &.i-wallet {
+    background-image: url("../assets/icons/wallet.svg");
+    width: 16px;
+    height: 16px;
+  }
+
+  &.i-plus-green {
+    background-image: url("../assets/icons/plus-green.svg");
+    width: 24px;
+    height: 24px;
+  }
+
+  &.i-calendar {
+    background-image: url("../assets/icons/calendar.svg");
+    width: 15px;
+    height: 16px;
+  }
+
+  &.i-placemark {
+    background-image: url("../assets/icons/placemark.svg");
+    width: 12px;
+    height: 16px;
+  }
+
+  &.i-expand-arrow {
+    background-image: url("../assets/icons/expand-arrow.svg");
+    width: 24px;
+    height: 24px;
+  }
+
+  &.i-cross {
+    background-image: url("../assets/icons/cross.svg");
+    width: 16px;
+    height: 16px;
+  }
+
+  &.i-train {
+    background-image: url("../assets/icons/train.svg");
+    width: 14px;
+    height: 16px;
+
+    &.active {
+      background-image: url("../assets/icons/train-active.svg");
+    }
+  }
+
+  &.i-airplane {
+    background-image: url("../assets/icons/airplane.svg");
+    width: 16px;
+    height: 16px;
+
+    &.active {
+      background-image: url("../assets/icons/airplane-active.svg");
+    }
+  }
+
+  &.i-left-arrow-white {
+    background-image: url("../assets/icons/left-arrow-white.svg");
+    width: 16px;
+    height: 13px;
+  }
+
+  &.i-pdf-extension {
+    background-image: url("../assets/icons/pdf-extension.svg");
+    width: 21px;
+    height: 24px;
+  }
+}

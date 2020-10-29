@@ -1,0 +1,11 @@
+@import "../../../../../../../library/styles/theming";
+
+.custom-checkbox {
+  .icon {
+    background-color: map-get($purple-palette, 950);
+  }
+}
+
+.trip-options {
+  flex-wrap: wrap;
+}

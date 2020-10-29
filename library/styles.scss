@@ -1,9 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import "styles/fonts";
-@import "styles/icons";
-@import "styles/variables";
-@import "styles/common";
+@import "library/styles/fonts";
+@import "library/styles/icons";
+@import "library/styles/variables";
+@import "library/styles/common";
 
 html, body {
   margin: 0;
@@ -16,7 +16,7 @@ html, body {
   font-family: 'Product Sans', serif;
 }
 
-button {
+button, a {
   cursor: pointer;
 }
 
@@ -31,4 +31,12 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 mat-dialog-container.mat-dialog-container {
   padding: 0;
   background-color: transparent;
+}
+
+@media (max-width: 679px) {
+  .container {
+    width: 100%;
+    padding: 0 16px;
+    min-width: unset;
+  }
 }

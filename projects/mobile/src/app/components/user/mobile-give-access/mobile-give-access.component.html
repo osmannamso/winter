@@ -1,0 +1,15 @@
+<select class="border-bottom-input m-t-15">
+  <option disabled selected>Выберите сотрудника</option>
+</select>
+<a routerLink="/user/employees/create" class="muted-btn m-t-15">Добавить нового</a>
+<h4>Уровень прав</h4>
+<label>
+  <input type="radio" name="access" value="manager" /> менеджер
+</label>
+<label class="display-inline-block m-l-10">
+  <input type="radio" name="access" value="admin" /> администратор
+</label>
+<div class="muted-text m-t-15">
+  Менеджер может подать заявку, но при этом не может согласовать предложение.
+</div>
+<button type="button" class="green-btn">Добавить</button>
