@@ -1,6 +1,8 @@
 import {Component, ElementRef, HostListener, OnInit, ViewChild} from '@angular/core';
 import {UserService} from '../../services/user.service';
 import {Router} from '@angular/router';
+import {MatDialog} from '@angular/material/dialog';
+import {ChangePasswordComponent} from '../../shared/modals/change-password/change-password.component';
 
 @Component({
   selector: 'app-user',
@@ -18,7 +20,8 @@ export class UserComponent implements OnInit {
 
   constructor(
     private userService: UserService,
-    private router: Router
+    private router: Router,
+    private dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -55,5 +58,9 @@ export class UserComponent implements OnInit {
     this.router.navigate(['/']).then(() => {
       this.userService.logOut();
     });
+  }
+
+  openChangePassword(): void {
+    this.dialog.open(ChangePasswordComponent);
   }
 }

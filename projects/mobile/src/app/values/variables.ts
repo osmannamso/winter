@@ -58,4 +58,5 @@ export const MOBILE_PAGES = {
   }
 };
 
-export const PASSWORD_CHANGED_SUCCESS = 'Пароль успешно изменен!';
+export const PASSWORD_CHANGED_SUCCESS = 'Пароль успешно изменен';
+export const LANDING_REQUEST_SUCCESS = 'Заявка успешно создана';

@@ -5,76 +5,79 @@
       <span class="icon i-cross"></span>
     </button>
   </div>
-  <div class="modal-body">
+  <form [formGroup]="employeeForm" (ngSubmit)="createEmployee()" class="modal-body">
     <div class="main-info-cover">
       <div class="left-cover m-w-30">
         <label>
-          <input type="text" placeholder="Имя" class="no-border-input" />
+          <input type="text" formControlName="name" placeholder="Имя" class="no-border-input" />
           <div class="input-tips">латинские буквы</div>
         </label>
         <label>
-          <input type="text" placeholder="Фамилия" class="no-border-input" />
+          <input type="text" formControlName="last_name" placeholder="Фамилия" class="no-border-input" />
           <div class="input-tips">латинские буквы</div>
         </label>
         <label>
-          <input type="text" placeholder="Отчество" class="no-border-input" />
+          <input type="text" formControlName="patronymic" placeholder="Отчество" class="no-border-input" />
           <div class="input-tips">латинские буквы</div>
         </label>
       </div>
       <div class="middle-cover m-w-30">
         <h4 class="label-text">Пол</h4>
         <label>
-          <input type="radio" name="gender" value="1" /> мужской
+          <input type="radio" formControlName="sex" [value]="employeeGenders.MALE" /> мужской
         </label>
         <label>
-          <input type="radio" name="gender" value="2" /> женский
+          <input type="radio" formControlName="sex" [value]="employeeGenders.FEMALE" /> женский
         </label>
         <h4 class="label-text m-t-30">Дата рождения</h4>
         <label>
-          <input type="date" placeholder="Отчество" class="no-border-input" />
+          <input type="date" formControlName="born_date" placeholder="Отчество" class="no-border-input" />
         </label>
       </div>
       <div class="right-cover m-w-30">
         <label class="avatar-btn">
-          <input type="file" class="file-upload" />
+          <input type="file" class="file-upload" (change)="handleFileInput($event.target.files)" />
           <img src="/assets/images/camera.png" />
           <h4>Загрузить фото</h4>
+          <p *ngIf="file" class="uploaded-text">Загружен {{ file.name }}</p>
         </label>
       </div>
     </div>
     <div class="main-info-cover">
       <div class="left-cover m-w-30">
         <label>
-          <select class="no-border-input">
-            <option disabled selected>Тип документа</option>
+          <select formControlName="position" class="no-border-input">
+            <option *ngFor="let position of employeePositions" [value]="position.value">
+              {{ position.text }}
+            </option>
           </select>
         </label>
         <label>
-          <input type="text" placeholder="Должность" class="no-border-input" />
+          <input type="text" formControlName="document_type" placeholder="Тип документа" class="no-border-input" />
         </label>
       </div>
       <div class="left-cover m-w-30">
         <label>
-          <input type="text" placeholder="Страна выдачи" class="no-border-input" />
+          <input type="text" formControlName="issue_country" placeholder="Страна выдачи" class="no-border-input" />
         </label>
         <label>
-          <input type="text" placeholder="Номер телефона" class="no-border-input" />
+          <input type="text" formControlName="phone" placeholder="Номер телефона" class="no-border-input" />
         </label>
       </div>
       <div class="left-cover m-w-30">
         <label>
-          <input type="text" placeholder="Серия и номер" class="no-border-input" />
+          <input type="text" formControlName="number" placeholder="Серия и номер" class="no-border-input" />
         </label>
         <label>
-          <input type="text" placeholder="E-mail" class="no-border-input" />
+          <input type="text" formControlName="email" placeholder="E-mail" class="no-border-input" />
         </label>
       </div>
     </div>
     <div class="w-100 m-t-15">
-      <input type="text" placeholder="Комментарий" class="no-border-input" />
+      <input type="text" formControlName="comment" placeholder="Комментарий" class="no-border-input" />
     </div>
     <div class="text-align-center m-t-30">
-      <button type="button" class="add-btn">Добавить сотрудника</button>
+      <button type="submit" class="add-btn">Добавить сотрудника</button>
     </div>
-  </div>
+  </form>
 </div>

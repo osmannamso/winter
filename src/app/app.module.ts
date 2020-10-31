@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import {AppRoutingModule} from './app-routing.module';
 import {ClientComponent} from './modules/client/client.component';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {ClientModule} from './modules/client/client.module';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import {UiKitModule} from './modules/ui-kit.module';
@@ -11,6 +11,7 @@ import {UserComponent} from './modules/user/user.component';
 import {UserModule} from './modules/user/user.module';
 import {AuthGuard} from './shared/guards/auth.guard';
 import {MatDialogModule} from '@angular/material/dialog';
+import {AuthInterceptor} from './shared/interceptors/auth-interceptor';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,12 @@ import {MatDialogModule} from '@angular/material/dialog';
     UiKitModule
   ],
   providers: [
-    AuthGuard
+    AuthGuard,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })

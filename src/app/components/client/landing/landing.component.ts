@@ -7,6 +7,9 @@ import {MatDialog} from '@angular/material/dialog';
 import {AuthModalComponent} from '../../../shared/modals/auth-modal/auth-modal.component';
 import {UserService} from '../../../services/user.service';
 import {Router} from '@angular/router';
+import {FormGroup} from '@angular/forms';
+import {MatSnackBar} from '@angular/material/snack-bar';
+import {LANDING_REQUEST_SUCCESS} from '../../../../../projects/mobile/src/app/values/variables';
 
 declare var ymaps: any;
 
@@ -17,17 +20,20 @@ declare var ymaps: any;
 })
 export class LandingComponent implements OnInit, AfterViewInit {
   reviewers: Array<Reviewer>;
+  requestForm: FormGroup;
   howWorkItems: Array<HowWorksItem>;
 
   constructor(
     private siteDataService: SiteDataService,
     private dialog: MatDialog,
     private userService: UserService,
-    private router: Router
+    private router: Router,
+    private snackBar: MatSnackBar
   ) { }
 
   ngOnInit(): void {
     this.getSiteData();
+    this.requestForm = this.siteDataService.getRequestForm();
   }
 
   ngAfterViewInit(): void {
@@ -85,5 +91,19 @@ export class LandingComponent implements OnInit, AfterViewInit {
 
   scrollToRequest(): void {
     window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+  }
+
+  createRequest(): void {
+    this.requestForm.markAllAsTouched();
+    if (this.requestForm.valid) {
+      this.siteDataService.createRequest(this.requestForm)
+        .pipe(take(1))
+        .subscribe(() => {
+          this.snackBar.open(LANDING_REQUEST_SUCCESS, '', {
+            duration: 2000,
+          });
+          this.requestForm = this.siteDataService.getRequestForm();
+        });
+    }
   }
 }

@@ -62,10 +62,10 @@
                   <div class="key-value">
                     <span>Права:</span> Менеджер
                   </div>
-                  <a routerLink="/user/give-access" class="muted-btn m-t-15">Добавить сотрудника</a>
+                  <button type="button" class="muted-btn m-t-15">Добавить сотрудника</button>
                 </div>
                 <div class="display-flex justify-content-space-between m-t-30">
-                  <a routerLink="/user/change-password" class="green-btn">Сменить пароль</a>
+                  <button type="button" (click)="openChangePassword()" class="green-btn">Сменить пароль</button>
                   <button type="button" (click)="logOut()" class="no-background-btn">Выйти</button>
                 </div>
               </div>

@@ -85,7 +85,7 @@ app-create-trip, app-mobile-create-trip, app-trips {
       flex: 1 1 45%;
       margin-top: 15px;
 
-      input[type=text], input[type=datetime-local] {
+      input[type=text], input[type=date] {
         border: none;
         background-color: transparent;
         color: $white;
@@ -96,8 +96,8 @@ app-create-trip, app-mobile-create-trip, app-trips {
         border-bottom: 1px solid map-get($purple-palette, 700);
       }
 
-      input[type=datetime-local] {
-        width: 50%;
+      input[type=date] {
+        width: 90%;
 
         &::-webkit-calendar-picker-indicator {
           filter: invert(1);
@@ -111,7 +111,7 @@ app-create-trip, app-mobile-create-trip, app-trips {
       }
 
       &.back-way {
-        input[type=datetime-local] {
+        input[type=date] {
           margin-right: 10px;
         }
 
@@ -429,7 +429,16 @@ app-create-user, app-mobile-create-user {
             cursor: pointer;
 
             h4 {
-              margin: 15px 0;
+              margin: 15px 0 0;
+            }
+
+            .uploaded-text {
+              margin: 2px 0 0;
+              max-width: 100%;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+              color: map-get($purple-palette, 700);
             }
           }
 
@@ -449,6 +458,10 @@ app-create-user, app-mobile-create-user {
     font-size: 16px;
     border-bottom: 1px solid map-get($purple-palette, 700);
     color: $white;
+
+    option {
+      color: $black;
+    }
 
     &::-webkit-calendar-picker-indicator {
       filter: invert(1);
@@ -607,7 +620,7 @@ app-create-user, app-mobile-create-user {
 }
 
 .form-error-cover {
-  color: map-get($red-palette, 500);
+  color: map-get($red-palette, 500) !important;
   margin-top: 5px;
   font-size: 14px;
 }

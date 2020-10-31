@@ -176,23 +176,24 @@
 </div>
 <div class="map-cover">
   <div class="request-cover">
-    <form>
+    <form [formGroup]="requestForm" (ngSubmit)="createRequest()">
       <h3>Оставьте заявку и мы <span>с вами свяжемся!</span></h3>
       <label>
         Название компнии
-        <input type="text" />
+        <input type="text" formControlName="company_name" />
       </label>
       <label>
         Имя
-        <input type="text" />
+        <input type="text" formControlName="name" />
       </label>
       <label>
         Номер телефона
-        <input type="text" />
+        <input type="text" formControlName="phone" />
       </label>
       <label>
         Эл. почта
-        <input type="text" />
+        <input type="text" formControlName="email" />
+        <div *ngIf="requestForm.get('email').touched && requestForm.get('email').hasError('email')" class="form-error-cover">Введите корректную почту</div>
       </label>
       <button type="submit">Отправить</button>
     </form>
