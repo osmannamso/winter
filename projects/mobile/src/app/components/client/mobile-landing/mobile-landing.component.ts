@@ -33,6 +33,7 @@ export class MobileLandingComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     this.getSiteData();
+    this.requestForm = this.siteDataService.getRequestForm();
   }
 
   ngAfterViewInit(): void {

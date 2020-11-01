@@ -35,8 +35,8 @@ export class CreateUserComponent implements OnInit {
     this.dialogRef.close();
   }
 
-  handleFileInput(files: FileList): void {
-    this.file = files.item(0);
+  handleFileInput(event: any): void {
+    this.file = event.target.files.item(0);
   }
 
   createEmployee(): void {

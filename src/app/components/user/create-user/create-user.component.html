@@ -36,7 +36,7 @@
       </div>
       <div class="right-cover m-w-30">
         <label class="avatar-btn">
-          <input type="file" class="file-upload" (change)="handleFileInput($event.target.files)" />
+          <input type="file" class="file-upload" (change)="handleFileInput($event)" />
           <img src="/assets/images/camera.png" />
           <h4>Загрузить фото</h4>
           <p *ngIf="file" class="uploaded-text">Загружен {{ file.name }}</p>

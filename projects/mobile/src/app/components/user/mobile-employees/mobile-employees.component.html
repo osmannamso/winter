@@ -2,34 +2,54 @@
   <span class="icon i-plus-green"></span> Добавить сотрудника
 </a>
 <div class="employees-cover">
-  <div *ngFor="let i of [1, 2, 3, 4, 5, 6, 7, 8]" class="employee-item">
+  <div *ngFor="let employee of employeePagination?.results; let i = index" class="employee-item">
     <div class="employee-main">
       <div class="employee-top">
-        <img src="https://i.pinimg.com/474x/97/46/5e/97465ec1f73b5d7dcbe4fda3b3282492.jpg" />
+        <img [src]="employee.image || noAvatar" />
         <div class="employee-info">
           <div class="employee-name">
-            Стив Роджерс
+            {{ employee.name }} {{ employee.last_name }}
           </div>
           <div class="employee-job">
-            Маркетолог
+            {{ employeeRuPositions[employee.position] }}
           </div>
         </div>
       </div>
       <div class="employee-body">
         <div class="key-value">
-          <span>Тип документа:</span> паспорт
+          <span>Тип документа:</span> {{ employeeRuDocumentTypes[employee.document_type] }}
         </div>
         <div class="key-value">
-          <span>Страна выдачи:</span> Казахстан
+          <span>Страна выдачи:</span> {{ employee.issue_country }}
         </div>
         <div class="key-value">
-          <span>Номер:</span> 956 79543
+          <span>Номер:</span> {{ employee.number }}
         </div>
+        <ng-container *ngIf="employee.expanded">
+          <div class="key-value m-t-30">
+            <span>Пол:</span> {{ employeeRuGenders[employee.sex] }}
+          </div>
+          <div class="key-value">
+            <span>Отчество:</span> {{ employee.patronymic }}
+          </div>
+          <div class="key-value">
+            <span>Дата рождения:</span> {{ employee.born_date | date: 'dd.MM.yyyy' }}
+          </div>
+          <div class="key-value">
+            <span>Номер телефона:</span> {{ employee.phone }}
+          </div>
+          <div class="key-value">
+            <span>E-mail:</span> {{ employee.email }}
+          </div>
+          <div class="key-value">
+            <span>Комментарий:</span> {{ employee.comment }}
+          </div>
+        </ng-container>
       </div>
     </div>
     <div class="employee-bottom">
-      <button type="button" class="expand-btn">
-        <span class="icon i-expand-arrow"></span> Развернуть
+      <button type="button" (click)="expandEmployee(i)" class="expand-btn">
+        <span class="icon i-expand-arrow"></span> {{ employee.expanded ? 'Свернуть' : 'Развернуть' }}
       </button>
     </div>
   </div>
