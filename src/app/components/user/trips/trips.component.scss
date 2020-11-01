@@ -1,5 +1,9 @@
 @import "../../../../../library/styles/theming";
 
+* {
+  font-weight: 300;
+}
+
 .request-cover {
   border-radius: 20px;
   overflow: hidden;
@@ -42,6 +46,66 @@
       .i-placemark {
         margin-left: 20px;
         margin-right: 10px;
+      }
+    }
+  }
+}
+
+.request-middle {
+  padding: 0 10px;
+
+  .expanded-info-top {
+    display: flex;
+
+    .expanded-infos {
+      padding: 5px 20px;
+      width: 25%;
+      flex: 1 1 25%;
+
+      h3 {
+        font-size: 18px;
+        color: $white;
+      }
+
+      .expanded-text {
+        color: map-get($purple-palette, 700);
+        font-size: 14px;
+        margin: 10px 0 0;
+      }
+    }
+  }
+
+  .expanded-info-bottom {
+    display: flex;
+    padding: 0 10px;
+    margin: 20px 0;
+
+    .expanded-box {
+      padding: 20px;
+      background-color: map-get($purple-palette, 950);
+      border-radius: 20px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 20%;
+      width: 20%;
+
+      &:not(:first-child) {
+        margin-left: 5%;
+      }
+
+      h2 {
+        color: $white;
+        font-size: 24px;
+        margin: 0;
+      }
+
+      .key-value {
+        margin-top: 10px;
+        color: map-get($purple-palette, 700);
+
+        span {
+          color: $white;
+        }
       }
     }
   }

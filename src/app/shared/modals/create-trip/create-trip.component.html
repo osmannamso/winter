@@ -124,11 +124,18 @@
       </ng-container>
       <ng-container *ngSwitchCase="3">
         <div class="third-cover">
-          <select>
+          <select (change)="selectEmployee($event)">
             <option disabled selected>Выберите сотрудника</option>
+            <option *ngFor="let employee of employeePagination?.results; let i = index" [value]="i">
+              {{ employee.name }} {{ employee.last_name }}
+            </option>
           </select>
           <div class="d-inline-block m-l-25 m-r-25">или</div>
-          <button type="button">Добавьте нового</button>
+          <button type="button" (click)="openCreateEmployee()">Добавьте нового</button>
+        </div>
+        <div *ngFor="let employee of selectedEmployees; let i = index" class="employee-item">
+          <div class="employee-item-name">{{ employee.name }} {{ employee.last_name }}</div>
+          <button type="button" (click)="removeEmployee(i)" class="employee-remove">Убрать</button>
         </div>
         <label class="comment-cover">
           <input type="text" [formControl]="tripRequestForm.get('comment')" placeholder="Комментарий" />

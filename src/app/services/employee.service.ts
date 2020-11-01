@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {CustomHttpService} from './custom-http.service';
-import {FormBuilder, FormGroup} from '@angular/forms';
-import {EMPLOYEE_GENDERS, EMPLOYEE_POSITIONS} from '../values/variables';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {EMPLOYEE_DOCUMENT_TYPES, EMPLOYEE_GENDERS, EMPLOYEE_POSITIONS} from '../values/variables';
 import {Observable} from 'rxjs';
 
 @Injectable({
@@ -21,11 +21,11 @@ export class EmployeeService {
       patronymic: '',
       sex: EMPLOYEE_GENDERS.MALE,
       born_date: '',
-      document_type: '',
+      document_type: EMPLOYEE_DOCUMENT_TYPES[0].value,
       issue_country: '',
       number: '',
       phone: '',
-      email: '',
+      email: ['', Validators.email],
       comment: ''
     });
   }
@@ -34,5 +34,9 @@ export class EmployeeService {
 
   createEmployee(formData: FormData): Observable<any> {
     return this.http.post('/corp/employee/', formData);
+  }
+
+  getEmployees(companyId: number): Observable<any> {
+    return this.http.get('/corp/employee/', {company: companyId, page_size: 200});
   }
 }

@@ -53,6 +53,10 @@
     background-image: url("../assets/icons/expand-arrow.svg");
     width: 24px;
     height: 24px;
+
+    &.reversed {
+      transform: rotate(180deg);
+    }
   }
 
   &.i-cross {

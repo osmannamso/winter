@@ -53,7 +53,11 @@
           </select>
         </label>
         <label>
-          <input type="text" formControlName="document_type" placeholder="Тип документа" class="no-border-input" />
+          <select formControlName="document_type" class="no-border-input">
+            <option *ngFor="let documentType of employeeDocumentTypes" [value]="documentType.value">
+              {{ documentType.text }}
+            </option>
+          </select>
         </label>
       </div>
       <div class="left-cover m-w-30">
@@ -70,6 +74,9 @@
         </label>
         <label>
           <input type="text" formControlName="email" placeholder="E-mail" class="no-border-input" />
+          <span *ngIf="employeeForm.get('email').touched && employeeForm.get('email').hasError('email')" class="display-block form-error-cover">
+            Введите корректный адрес
+          </span>
         </label>
       </div>
     </div>

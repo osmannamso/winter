@@ -41,6 +41,6 @@ export class TripService {
   }
 
   getTripRequests(): Observable<TripRequestPagination> {
-    return this.http.get('/corp/trip_request/');
+    return this.http.get('/corp/trip_request/', {page_size: 200});
   }
 }

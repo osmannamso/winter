@@ -47,4 +47,8 @@ export class UserService {
   changePassword(formGroup: FormGroup): Observable<any> {
     return this.http.post('/accounts/change_password/', formGroup.getRawValue());
   }
+
+  getCompany(): Observable<any> {
+    return this.http.get('/corp/company/');
+  }
 }

@@ -2,8 +2,10 @@ import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 import {FormGroup} from '@angular/forms';
 import {EmployeeService} from '../../../services/employee.service';
-import {EMPLOYEE_GENDERS, EMPLOYEE_POSITIONS} from '../../../values/variables';
+import {EMPLOYEE_DOCUMENT_TYPES, EMPLOYEE_GENDERS, EMPLOYEE_POSITIONS} from '../../../values/variables';
 import {take} from 'rxjs/operators';
+import {EMPLOYEE_CREATE_SUCCESS} from '../../../../../projects/mobile/src/app/values/variables';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-create-user',
@@ -16,11 +18,13 @@ export class CreateUserComponent implements OnInit {
 
   employeeGenders = EMPLOYEE_GENDERS;
   employeePositions = EMPLOYEE_POSITIONS;
+  employeeDocumentTypes = EMPLOYEE_DOCUMENT_TYPES;
 
   constructor(
     private dialogRef: MatDialogRef<CreateUserComponent>,
     @Inject(MAT_DIALOG_DATA) private data,
-    private employeeService: EmployeeService
+    private employeeService: EmployeeService,
+    private snackBar: MatSnackBar
   ) { }
 
   ngOnInit(): void {
@@ -48,9 +52,11 @@ export class CreateUserComponent implements OnInit {
 
     this.employeeService.createEmployee(formData)
       .pipe(take(1))
-      .subscribe((data) => {
+      .subscribe(() => {
         this.close();
-
+        this.snackBar.open(EMPLOYEE_CREATE_SUCCESS, '', {
+          duration: 2000,
+        });
       });
   }
 }
