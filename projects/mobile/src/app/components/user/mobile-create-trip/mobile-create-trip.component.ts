@@ -1,8 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {MobilePagesService} from '../../../services/mobile-pages.service';
-import {MOBILE_PAGES} from '../../../values/variables';
-import {TICKET_CLASSES, TRIP_OPTIONS} from '../../../../../../../src/app/values/variables';
+import {MOBILE_PAGES, TRIP_CREATE_SUCCESS} from '../../../values/variables';
+import {
+  TICKET_CLASSES,
+  TRIP_OPTIONS,
+  TRIP_RESIDENCE_CLASSES,
+  TRIP_RESIDENCES,
+  TRIP_TRANSFERS, TRIP_VEHICLE_CLASS
+} from '../../../../../../../src/app/values/variables';
 import {Router} from '@angular/router';
+import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from '@angular/material/dialog';
+import {TripService} from '../../../../../../../src/app/services/trip.service';
+import {LocalStorageService} from '../../../../../../../src/app/services/local-storage.service';
+import {EmployeeService} from '../../../../../../../src/app/services/employee.service';
+import {MatSnackBar} from '@angular/material/snack-bar';
+import {FormGroup} from '@angular/forms';
+import {Employee} from '../../../../../../../src/app/shared/interfaces/employee';
+import {EmployeePagination} from '../../../../../../../src/app/shared/interfaces/employee-pagination';
+import {take} from 'rxjs/operators';
+import {COMPANY_KEY} from '../../../../../../../src/app/values/local-storage-keys';
 
 @Component({
   selector: 'app-mobile-create-trip',
@@ -11,20 +27,32 @@ import {Router} from '@angular/router';
 })
 export class MobileCreateTripComponent implements OnInit {
   twoWay = false;
-  tripOption: TRIP_OPTIONS;
-  ticketClass: TICKET_CLASSES;
   step: 1 | 2 | 3 = 1;
+  tripRequestForm: FormGroup;
+  selectedEmployees: Array<Employee> = [];
+  employeePagination: EmployeePagination;
 
   tripOptions = TRIP_OPTIONS;
   ticketClasses = TICKET_CLASSES;
+  tripResidences = TRIP_RESIDENCES;
+  tripResidenceClasses = TRIP_RESIDENCE_CLASSES;
+  tripTransfers = TRIP_TRANSFERS;
+  tripVehicleClasses = TRIP_VEHICLE_CLASS;
 
   constructor(
     private mobilePagesService: MobilePagesService,
-    private router: Router
+    private router: Router,
+    private tripService: TripService,
+    private localStorage: LocalStorageService,
+    private dialog: MatDialog,
+    private employeeService: EmployeeService,
+    private snackBar: MatSnackBar
   ) { }
 
   ngOnInit(): void {
     this.mobilePagesService.setMobilePage(MOBILE_PAGES.CREATE_TRIP_FIRST);
+    this.tripRequestForm = this.tripService.getTripForm();
+    this.getEmployees();
   }
 
   prevStep(): void {
@@ -34,7 +62,17 @@ export class MobileCreateTripComponent implements OnInit {
 
   nextStep(): void {
     if (this.step == 3) {
-      this.router.navigate(['/user/trips']);
+      const employeeIds = this.selectedEmployees.map((employee) => employee.user);
+      this.tripRequestForm.get('employees').setValue(employeeIds);
+      this.tripService.createTripRequest(this.tripRequestForm)
+        .pipe(take(1))
+        .subscribe(() => {
+          this.router.navigate(['/user/trips']).then(() => {
+            this.snackBar.open(TRIP_CREATE_SUCCESS, '', {
+              duration: 2000,
+            });
+          });
+        });
     } else {
       this.step += 1;
     }
@@ -49,5 +87,24 @@ export class MobileCreateTripComponent implements OnInit {
     } else {
       this.mobilePagesService.setMobilePage(MOBILE_PAGES.CREATE_TRIP_THIRD);
     }
+  }
+
+  getEmployees(): void {
+    const companyId = this.localStorage.getItem(COMPANY_KEY).id;
+    this.employeeService.getEmployees(companyId)
+      .pipe(take(1))
+      .subscribe((data) => {
+        this.employeePagination = data;
+      });
+  }
+
+  selectEmployee($event: any) {
+    if (this.selectedEmployees.indexOf($event.target.value) == -1) {
+      this.selectedEmployees.push(this.employeePagination.results[$event.target.value]);
+    }
+  }
+
+  removeEmployee(i: number): void {
+    this.selectedEmployees.splice(i, 1);
   }
 }

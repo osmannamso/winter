@@ -4,15 +4,16 @@ import {Observable} from 'rxjs';
 import {take, tap} from 'rxjs/operators';
 import {TOKEN_KEY} from '../../values/local-storage-keys';
 import {LocalStorageService} from '../../services/local-storage.service';
-import {MatDialog} from '@angular/material/dialog';
 import {UserService} from '../../services/user.service';
+import {MatSnackBar} from '@angular/material/snack-bar';
+import {NOT_AUTHORIZED_MESSAGE, SOME_ERRORS_MESSAGE} from '../../../../projects/mobile/src/app/values/variables';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
   constructor(
     private localStorage: LocalStorageService,
-    private dialog: MatDialog,
-    private injector: Injector
+    private injector: Injector,
+    private snackBar: MatSnackBar
   ) {}
 
   intercept(
@@ -33,7 +34,14 @@ export class AuthInterceptor implements HttpInterceptor {
           if (err instanceof HttpErrorResponse) {
             if (err.status == 401) {
               const authService = this.injector.get(UserService);
+              this.snackBar.open(NOT_AUTHORIZED_MESSAGE, '', {
+                duration: 2000
+              });
               authService.logOut();
+            } else {
+              this.snackBar.open(SOME_ERRORS_MESSAGE, '', {
+                duration: 2000
+              })
             }
           }
         }

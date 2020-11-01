@@ -1,51 +1,101 @@
 <a routerLink="/user/trips/create" class="request-btn">
   <span class="icon i-plus-green"></span> Подать заявку
 </a>
-<div class="request-cover">
+<div *ngFor="let trip of tripPagination?.results; let i = index" class="request-cover">
   <div class="request-top">
-    <h3>Запрос</h3>
-    <p class="request-date">
-      <span class="icon i-calendar"></span> 11.03.19 - 25.03.19
-    </p>
-    <p class="request-location">
-      <span class="icon i-placemark"></span> Алматы
-    </p>
+    <div class="request-left">
+      <h3>Запрос</h3>
+      <p class="request-icon-value">
+        <span class="icon i-calendar"></span>
+        {{ trip.trip_date_from | date: 'dd.MM.yyyy' }} - {{ trip.trip_date_to | date: 'dd.MM.yyyy' }}
+      </p>
+      <p class="request-icon-value">
+        <span class="icon i-placemark"></span> {{ trip.city_from }} - {{ trip.city_to }}
+      </p>
+      <p class="request-icon-value">
+        <span class="icon i-user"></span>
+        {{ trip.employees.length }}
+      </p>
+    </div>
     <div class="progress-cover">
       <div class="request-status">
-        Статус <span>В обработке</span>
+        Статус <span>{{ tripRuStatuses[trip.status].text }}</span>
       </div>
       <div class="request-progress">
-        <div class="progress-item"></div>
-        <div class="progress-item"></div>
+        <div *ngFor="let progress of [].constructor(tripRuStatuses[trip.status].count)" class="progress-item"></div>
       </div>
     </div>
   </div>
-  <div class="request-bottom">
-    <div class="request-status">Предложения: формируется</div>
-  </div>
-</div>
-<div class="request-cover">
-  <div class="request-top">
-    <h3>Запрос</h3>
-    <p class="request-date">
-      <span class="icon i-calendar"></span> 11.03.19 - 25.03.19
-    </p>
-    <p class="request-location">
-      <span class="icon i-placemark"></span> Алматы
-    </p>
-    <div class="progress-cover">
-      <div class="request-status">
-        Статус <span>В обработке</span>
+  <div *ngIf="trip.expanded" class="request-middle">
+    <div class="expanded-info-top">
+      <div class="expanded-infos --manager">
+        <h3>Менеджер Pillowz.Corp</h3>
+        <div class="expanded-text">{{ trip.created_by.name }} {{ trip.created_by.last_name }}</div>
       </div>
-      <div class="request-progress">
-        <div class="first-progress"></div>
-        <div class="middle-progress"></div>
+      <div class="expanded-infos --city">
+        <h3>Даты, города</h3>
+        <div class="expanded-text">
+          {{ trip.trip_date_from | date: 'dd.MM.yyyy' }}, {{ trip.city_from }} -
+          {{ trip.trip_date_to | date: 'dd.MM.yyyy' }}, {{ trip.city_to }}
+        </div>
+      </div>
+      <div class="expanded-infos --city">
+        <h3>Комментарий</h3>
+        <div class="expanded-text">{{ trip.comment || 'Отсутсвует' }}</div>
+      </div>
+      <div class="expanded-infos --city">
+        <h3>Стоимость</h3>
+        <div class="expanded-text">{{ trip.amount }} ₸</div>
+      </div>
+    </div>
+    <div class="expanded-info-bottom">
+      <div class="expanded-box">
+        <h2>Трансфер</h2>
+        <div class="key-value">
+          Пакет: <span>{{ tripRuTransfers[trip.transfer] }}</span>
+        </div>
+        <div class="key-value">
+          Класс авто: <span>{{ tripRuVehicleClasses[trip.vehicle_class] }}</span>
+        </div>
+        <div class="key-value">
+          Часы: <span>{{ trip.hour_amount }} ч</span>
+        </div>
+      </div>
+      <div class="expanded-box">
+        <h2>Размещение</h2>
+        <div class="key-value">
+          Тип: <span>{{ tripRuResidences[trip.residence] }}</span>
+        </div>
+        <div class="key-value">
+          Класс: <span>{{ tripRuResidenceClass[trip.residence_class] }}</span>
+        </div>
+      </div>
+      <div class="expanded-box">
+        <h2>Перемещение</h2>
+        <div class="key-value">
+          Откуда: <span>{{ trip.city_from }}</span>
+        </div>
+        <div class="key-value">
+          Куда: <span>{{ trip.city_to }}</span>
+        </div>
+        <div class="key-value">
+          Транспорт: <span>{{ tripRuOptions[trip.by] }}</span>
+        </div>
+        <div class="key-value">
+          Класс: <span>{{ tripRuTicketClasses[trip.ticket_type] }}</span>
+        </div>
       </div>
     </div>
   </div>
-  <div class="request-bottom">
-    <button type="button" class="expand-btn">
-      <span class="icon i-expand-arrow"></span> Показать предложения
+  <div *ngIf="trip.status == tripStatuses.OFFER" class="request-bottom">
+    Предложения формируется
+  </div>
+  <div *ngIf="trip.status == tripStatuses.AWAITING_APPROVAL" class="request-bottom">
+    Предложений нет
+  </div>
+  <div *ngIf="trip.status == tripStatuses.CONFIRMED || trip.status == tripStatuses.IN_PROCESSING" class="request-bottom expand-offers">
+    <button type="button" (click)="expandTrip(i)" class="expand-btn">
+      <span class="icon i-expand-arrow" [class.reversed]="trip.expanded"></span> {{ trip.expanded ? 'Скрыть предложения' : 'Показать предложения' }}
     </button>
   </div>
 </div>

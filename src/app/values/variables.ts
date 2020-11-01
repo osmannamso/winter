@@ -85,5 +85,4 @@ export const EMPLOYEE_RU_GENDERS = {
   male: 'мужской',
   female: 'женский'
 };
-
 export const EMPLOYEE_NO_AVATAR = '/assets/images/no-avatar.png';

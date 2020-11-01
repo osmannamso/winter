@@ -62,3 +62,6 @@ export const PASSWORD_CHANGED_SUCCESS = 'Пароль успешно измен�
 export const LANDING_REQUEST_SUCCESS = 'Заявка успешно создана';
 export const EMPLOYEE_CREATE_SUCCESS = 'Сотрудник успешно создан';
 export const TRIP_CREATE_SUCCESS = 'Заявка успешно создана';
+
+export const NOT_AUTHORIZED_MESSAGE = 'Вы не авторизованы';
+export const SOME_ERRORS_MESSAGE = 'Произошла ошибка';

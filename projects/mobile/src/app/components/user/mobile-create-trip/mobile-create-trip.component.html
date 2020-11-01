@@ -4,18 +4,18 @@
       <ng-container *ngSwitchCase="1">
         <div class="input-fields">
           <label>
-            <input type="text" placeholder="Откуда" />
+            <input type="text" [formControl]="tripRequestForm.get('city_from')" placeholder="Откуда" />
             <span class="">страна, город, аэропорт, вокзал</span>
           </label>
           <label>
-            <input type="text" placeholder="Куда" />
+            <input type="text" [formControl]="tripRequestForm.get('city_to')" placeholder="Куда" />
             <span class="">страна, город, аэропорт, вокзал</span>
           </label>
           <label>
-            <input type="datetime-local" placeholder="Когда" />
+            <input type="date" [formControl]="tripRequestForm.get('trip_date_from')" placeholder="Когда" />
           </label>
           <label class="back-way">
-            <input *ngIf="twoWay" type="datetime-local" placeholder="Когда" />
+            <input *ngIf="twoWay" type="date" [formControl]="tripRequestForm.get('trip_date_to')" placeholder="Когда" />
             <label>
               <input type="checkbox" [(ngModel)]="twoWay" />
               <span>обратный билет</span>
@@ -24,27 +24,27 @@
         </div>
         <div class="trip-options">
           <label class="custom-checkbox">
-            <input type="radio" [(ngModel)]="tripOption" name="trip-option" [value]="tripOptions.AIRPLANE" />
+            <input type="radio" [formControl]="tripRequestForm.get('by')" name="by" [value]="tripOptions.AIRPLANE" />
             <span class="icon i-airplane"></span>
             Самолет
           </label>
           <label class="custom-checkbox m-l-50">
-            <input type="radio" [(ngModel)]="tripOption" name="trip-option" [value]="tripOptions.TRAIN" />
+            <input type="radio"  [formControl]="tripRequestForm.get('by')" name="by" [value]="tripOptions.TRAIN" />
             <span class="icon i-train"></span>
             Поезд
           </label>
           <label class="one-way m-t-20">
-            <input type="checkbox" />
+            <input type="checkbox" [formControl]="tripRequestForm.get('direct_flight')" />
             Прямой рейс
           </label>
         </div>
         <div class="ticket-class">
           <label>
-            <input type="radio" [(ngModel)]="ticketClass" name="ticket-class" [value]="ticketClasses.ECONOMIC"/>
+            <input type="radio" [formControl]="tripRequestForm.get('ticket_type')" name="ticket_type" [value]="ticketClasses.ECONOMIC" />
             эконом
           </label>
           <label class="m-l-25">
-            <input type="radio" [(ngModel)]="ticketClass" name="ticket-class" [value]="ticketClasses.BUSINESS"/>
+            <input type="radio" [formControl]="tripRequestForm.get('ticket_type')" name="ticket_type" [value]="ticketClasses.BUSINESS" />
             бизнес
           </label>
         </div>
@@ -57,25 +57,25 @@
           <div class="radio-group live-place">
             Место проживания
             <label>
-              <input type="radio" name="live-place" value="1" /> Гостиница
+              <input type="radio" [formControl]="tripRequestForm.get('residence')" name="live-place" [value]="tripResidences.HOTEL" /> Гостиница
             </label>
             <label>
-              <input type="radio" name="live-place" value="1" /> Апартаменты
+              <input type="radio" [formControl]="tripRequestForm.get('residence')" name="live-place" [value]="tripResidences.APARTMENT" /> Апартаменты
             </label>
             <label>
-              <input type="radio" name="live-place" value="1" /> Не требуется
+              <input type="radio" [formControl]="tripRequestForm.get('residence')" name="live-place" [value]="tripResidences.NONE" /> Не требуется
             </label>
           </div>
           <div class="radio-group subject-class">
             Класс места проживания
             <label>
-              <input type="radio" name="live-class" value="1" /> Эконом класс
+              <input type="radio" [formControl]="tripRequestForm.get('residence_class')" name="live-class" [value]="tripResidenceClasses.ECONOMY" /> Эконом класс
             </label>
             <label>
-              <input type="radio" name="live-class" value="1" /> Средний класс
+              <input type="radio" [formControl]="tripRequestForm.get('residence_class')" name="live-class" [value]="tripResidenceClasses.MIDDLE" /> Средний класс
             </label>
             <label>
-              <input type="radio" name="live-class" value="1" /> Люкс класс
+              <input type="radio" [formControl]="tripRequestForm.get('residence_class')" name="live-class" [value]="tripResidenceClasses.LUXURY" /> Люкс класс
             </label>
           </div>
         </div>
@@ -86,47 +86,52 @@
           <div class="radio-group live-place">
             Вариант трансфера
             <label>
-              <input type="radio" name="drive-type" value="1" /> Полный пакет
+              <input type="radio" [formControl]="tripRequestForm.get('transfer')" name="drive-type" [value]="tripTransfers.FULL" /> Полный пакет
             </label>
             <label>
-              <input type="radio" name="drive-type" value="1" /> Частичный пакет
+              <input type="radio" [formControl]="tripRequestForm.get('transfer')" name="drive-type" [value]="tripTransfers.PARTIAL" /> Частичный пакет
             </label>
           </div>
           <div class="radio-group subject-class">
             Класс автомобиля
             <label>
-              <input type="radio" name="drive-class" value="1" /> Эконом класс
+              <input type="radio" [formControl]="tripRequestForm.get('vehicle_class')" name="drive-class" [value]="tripVehicleClasses.ECONOMY" /> Эконом класс
             </label>
             <label>
-              <input type="radio" name="drive-class" value="1" /> Бизнес класс
+              <input type="radio" [formControl]="tripRequestForm.get('vehicle_class')" name="drive-class" [value]="tripVehicleClasses.BUSINESS" /> Бизнес класс
             </label>
             <label>
-              <input type="radio" name="drive-class" value="1" /> Микроавтобус
+              <input type="radio" [formControl]="tripRequestForm.get('vehicle_class')" name="drive-class" [value]="tripVehicleClasses.MINIBUS" /> Микроавтобус
             </label>
           </div>
         </div>
         <div class="second-group">
           <div class="second-hour-count">
-            <p class="hour-text">Количество часов</p>
             <label>
-              <input type="checkbox" /> почасово
+              <input type="number" [formControl]="tripRequestForm.get('hour_amount')" class="border-bottom-input" placeholder="Количество часов" />
+            </label>
+            <label class="display-inline-block m-t-10">
+              <input type="checkbox" [formControl]="tripRequestForm.get('is_hourly')" /> почасово
             </label>
           </div>
         </div>
       </ng-container>
       <ng-container *ngSwitchCase="3">
         <div class="third-cover">
-          <select>
+          <select (change)="selectEmployee($event)">
             <option disabled selected>Выберите сотрудника</option>
+            <option *ngFor="let employee of employeePagination?.results; let i = index" [value]="i">
+              {{ employee.name }} {{ employee.last_name }}
+            </option>
           </select>
-          <button type="button">Добавьте нового</button>
+        </div>
+        <div *ngFor="let employee of selectedEmployees; let i = index" class="employee-item">
+          <div class="employee-item-name">{{ employee.name }} {{ employee.last_name }}</div>
+          <button type="button" (click)="removeEmployee(i)" class="employee-remove">Убрать</button>
         </div>
         <label class="comment-cover">
-          <input type="text" placeholder="Комментарий" />
+          <input type="text" [formControl]="tripRequestForm.get('comment')" placeholder="Комментарий" />
         </label>
-        <button type="button" class="request-btn">
-          <span class="icon i-plus-green"></span> Еще сотрудник
-        </button>
       </ng-container>
     </ng-container>
     <div class="next-cover">

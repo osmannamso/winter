@@ -68,7 +68,8 @@ export class CreateTripComponent implements OnInit {
       this.tripRequestForm.get('employees').setValue(employeeIds);
       this.tripService.createTripRequest(this.tripRequestForm)
         .pipe(take(1))
-        .subscribe((data) => {
+        .subscribe(() => {
+          this.close();
           this.snackBar.open(TRIP_CREATE_SUCCESS, '', {
             duration: 2000,
           });
