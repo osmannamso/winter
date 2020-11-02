@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MobilePagesService} from '../../../services/mobile-pages.service';
-import {MOBILE_PAGES} from '../../../values/variables';
+import {MEDIA_ROOT, MOBILE_PAGES} from '../../../values/variables';
 import {EmployeePagination} from '../../../../../../../src/app/shared/interfaces/employee-pagination';
 import {
   EMPLOYEE_NO_AVATAR,
@@ -21,6 +21,7 @@ import {COMPANY_KEY} from '../../../../../../../src/app/values/local-storage-key
 })
 export class MobileEmployeesComponent implements OnInit {
   employeePagination: EmployeePagination;
+  apiUrl = MEDIA_ROOT;
 
   noAvatar = EMPLOYEE_NO_AVATAR;
   employeeRuPositions = EMPLOYEE_RU_POSITIONS;

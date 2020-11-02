@@ -5,7 +5,7 @@
   <div *ngFor="let employee of employeePagination?.results; let i = index" class="employee-item">
     <div class="employee-main">
       <div class="employee-top">
-        <img [src]="employee.image || noAvatar" />
+        <img [src]="employee.image ? (apiUrl + employee.image) : noAvatar" />
         <div class="employee-info">
           <div class="employee-name">
             {{ employee.name }} {{ employee.last_name }}

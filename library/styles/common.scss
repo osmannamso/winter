@@ -351,6 +351,7 @@ app-create-trip, app-mobile-create-trip, app-trips, app-mobile-trips {
         width: 45px;
         height: 45px;
         border-radius: 50%;
+        object-fit: cover;
       }
 
       .employee-info {

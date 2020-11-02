@@ -7,6 +7,7 @@ import {LocalStorageService} from '../../../services/local-storage.service';
 import {COMPANY_KEY} from '../../../values/local-storage-keys';
 import {EmployeePagination} from '../../../shared/interfaces/employee-pagination';
 import {EMPLOYEE_NO_AVATAR, EMPLOYEE_RU_DOCUMENT_TYPES, EMPLOYEE_RU_GENDERS, EMPLOYEE_RU_POSITIONS} from '../../../values/variables';
+import {MEDIA_ROOT} from '../../../../../projects/mobile/src/app/values/variables';
 
 @Component({
   selector: 'app-employees',
@@ -15,6 +16,7 @@ import {EMPLOYEE_NO_AVATAR, EMPLOYEE_RU_DOCUMENT_TYPES, EMPLOYEE_RU_GENDERS, EMP
 })
 export class EmployeesComponent implements OnInit {
   employeePagination: EmployeePagination;
+  apiUrl = MEDIA_ROOT;
 
   noAvatar = EMPLOYEE_NO_AVATAR;
   employeeRuPositions = EMPLOYEE_RU_POSITIONS;
