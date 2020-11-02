@@ -1,0 +1,12 @@
+<div class="modal-overall">
+  <h1 class="change-company-text">Профиль компании</h1>
+  <form [formGroup]="changeCompanyForm" (ngSubmit)="changeCompany()">
+    <label class="display-block m-t-15">
+      <input type="text" formControlName="name" class="border-bottom-input" placeholder="Название" />
+    </label>
+    <label class="display-block m-t-15">
+      <input type="text" formControlName="requisites" class="border-bottom-input" placeholder="Реквизиты" />
+    </label>
+    <button type="submit" class="green-btn">Сохранить</button>
+  </form>
+</div>

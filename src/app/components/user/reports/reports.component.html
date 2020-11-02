@@ -1,11 +1,3 @@
-<div class="filter-cover">
-  <label>
-    Фильтровать по:
-    <select>
-      <option selected>дате</option>
-    </select>
-  </label>
-</div>
 <div class="reports-cover">
   <div class="table-headers">
     <div class="report-field --date">Дата</div>
@@ -13,13 +5,20 @@
     <div class="report-field --sum">Сумма</div>
     <div class="report-field --documents">Документы</div>
   </div>
-  <div *ngFor="let i of [1, 2, 3, 4, 5, 6, 7]" class="report-item">
-    <div class="report-field report-field --date">26.03.2019</div>
-    <div class="report-field report-field --operation">Организация деловой поездки</div>
-    <div class="report-field report-field --sum">28 000 ТГ</div>
+  <div *ngFor="let report of reports" class="report-item">
+    <div class="report-field report-field --date">{{ report.created_at | date: 'dd.MM.yyyy' }}</div>
+    <div class="report-field report-field --operation">{{ report.operation_type }}</div>
+    <div class="report-field report-field --sum">{{ report.amount | number }} ТГ</div>
     <div class="report-field report-field --documents">
-      Счет на оплату
-      <span class="icon i-pdf-extension"></span>
+      {{ report.invoice }}
+      <a [href]="apiUrl + report.invoice_pdf" target="_blank" class="download-btn" download>
+        <span class="icon i-pdf-extension"></span>
+        Счет на оплату
+      </a>
+      <a [href]="apiUrl + report.route_sheet_pdf" target="_blank" class="download-btn" download>
+        <span class="icon i-pdf-extension"></span>
+        Маршрутный лист
+      </a>
     </div>
   </div>
 </div>

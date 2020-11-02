@@ -30,6 +30,13 @@ export class UserService {
     });
   }
 
+  getChangeCompanyForm(): FormGroup {
+    return this.fb.group({
+      name: '',
+      requisites: ''
+    });
+  }
+
   logOut(): void {
     this.localStorage.removeItem(TOKEN_KEY);
   }
@@ -50,5 +57,17 @@ export class UserService {
 
   getCompany(): Observable<any> {
     return this.http.get('/corp/company/');
+  }
+
+  getNotifications(): Observable<any> {
+    return this.http.get('/corp/notifications/', {page_size: 1000});
+  }
+
+  changeCompany(formGroup: FormGroup): Observable<any> {
+    return this.http.post('/corp/company/', formGroup.getRawValue());
+  }
+
+  getReports(): Observable<any> {
+    return this.http.get('/corp/trip_request/reports/');
   }
 }

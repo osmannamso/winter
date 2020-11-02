@@ -62,6 +62,9 @@ export const PASSWORD_CHANGED_SUCCESS = 'Пароль успешно измен�
 export const LANDING_REQUEST_SUCCESS = 'Заявка успешно создана';
 export const EMPLOYEE_CREATE_SUCCESS = 'Сотрудник успешно создан';
 export const TRIP_CREATE_SUCCESS = 'Заявка успешно создана';
+export const CHANGE_COMPANY_SUCCESS = 'Компания успешно изменена';
 
 export const NOT_AUTHORIZED_MESSAGE = 'Вы не авторизованы';
 export const SOME_ERRORS_MESSAGE = 'Произошла ошибка';
+
+export const MEDIA_ROOT = 'http://admin.corp.byz-trip.kz';

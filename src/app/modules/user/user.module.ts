@@ -10,6 +10,7 @@ import { ReportsComponent } from '../../components/user/reports/reports.componen
 import { ChangePasswordComponent } from '../../shared/modals/change-password/change-password.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { ChangeCompanyComponent } from '../../shared/modals/change-company/change-company.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     EmployeesComponent,
     CreateUserComponent,
     ReportsComponent,
-    ChangePasswordComponent
+    ChangePasswordComponent,
+    ChangeCompanyComponent
   ],
   imports: [
     CommonModule,

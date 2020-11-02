@@ -38,9 +38,20 @@
 
   .report-item {
     display: flex;
+    align-items: center;
     margin-top: 10px;
     padding: 10px 0;
     border-top: 1px solid map-get($purple-palette, 950);
     color: map-get($purple-palette, 700);
+  }
+}
+
+.download-btn {
+  display: flex;
+  align-items: center;
+  color: $white;
+
+  .icon {
+    margin-right: 5px;
   }
 }

@@ -13,14 +13,11 @@
         </button>
         <div *ngIf="isActiveNotifications" class="notifications-block">
           <div class="notifications-cover">
-            <div *ngFor="let i of [1, 2, 3, 4, 5, 6]" class="notification-item">
-              <div class="notification-date">26.03.2019 11:40</div>
-              <div class="notification-status">Заявка отправлена</div>
-              <div class="notification-text">Ваша заявка была отправлена и ожидает рассмотрения.</div>
+            <div *ngFor="let notification of notifications" class="notification-item">
+              <div class="notification-date">{{ notification.created_at | date: 'dd.MM.yyyy hh:mm' }}</div>
+              <div class="notification-status">{{ notification.title }}</div>
+              <div class="notification-text">{{ notification.body }}</div>
             </div>
-          </div>
-          <div class="notifications-bottom">
-            <button type="button" class="more-btn dropdown-btn">Показать все</button>
           </div>
         </div>
       </div>
@@ -51,7 +48,7 @@
                   <div class="key-value">
                     <span>Реквизиты:</span> 34534112
                   </div>
-                  <a routerLink="/user/change-company" class="muted-btn m-t-15">Редактировать</a>
+                  <button type="button" (click)="openCompanyProfile()" class="muted-btn m-t-15">Редактировать</button>
                   <h4 class="main-key">Доступ к кабинету</h4>
                   <div class="key-value">
                     <span>Пользователь:</span> Стив Роджерс
@@ -62,7 +59,7 @@
                   <div class="key-value">
                     <span>Права:</span> Менеджер
                   </div>
-                  <button type="button" class="muted-btn m-t-15">Добавить сотрудника</button>
+                  <button type="button" (click)="openCreateUser()" class="muted-btn m-t-15">Добавить сотрудника</button>
                 </div>
                 <div class="display-flex justify-content-space-between m-t-30">
                   <button type="button" (click)="openChangePassword()" class="green-btn">Сменить пароль</button>
