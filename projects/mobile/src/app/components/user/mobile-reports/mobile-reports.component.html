@@ -1,25 +1,24 @@
-<div class="filter-cover">
-  <label>
-    Фильтровать по:
-    <select>
-      <option selected>дате</option>
-    </select>
-  </label>
-</div>
-<div *ngFor="let i of [1, 2, 3, 4, 5, 6]" class="report-item">
+<div *ngFor="let report of reports" class="report-item">
   <div class="report-key-value">
-    <span>Дата:</span> 26.03.2019
+    <span>Дата:</span> {{ report.created_at | date: 'dd.MM.yyyy' }}
   </div>
   <div class="report-key-value">
-    <span>Операция:</span> Организация деловой поездки
+    <span>Операция:</span> {{ report.operation_type }}
   </div>
   <div class="report-key-value">
-    <span>Сумма:</span> 28 000 ТГ
+    <span>Сумма:</span> {{ report.amount | number }} ТГ
   </div>
   <div class="report-key-value">
-    <span>Документы:</span> Счет на оплату №69420
+    <span>Документы:</span> {{ report.invoice }}
   </div>
   <div class="report-files">
-    <span class="icon i-pdf-extension"></span> Счет на оплату
+    <a [href]="apiUrl + report.invoice_pdf" target="_blank" class="download-btn" download>
+      <span class="icon i-pdf-extension"></span>
+      Счет на оплату
+    </a>
+    <a [href]="apiUrl + report.route_sheet_pdf" target="_blank" class="download-btn" download>
+      <span class="icon i-pdf-extension"></span>
+      Маршрутный лист
+    </a>
   </div>
 </div>

@@ -21,12 +21,19 @@
   .report-files {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     margin-top: 10px;
     color: map-get($purple-palette, 700);
     font-size: 14px;
 
     span {
       margin-right: 5px;
+    }
+
+    .download-btn {
+      display: flex;
+      align-items: center;
+      color: $white;
     }
   }
 }

@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {MobilePagesService} from '../../../services/mobile-pages.service';
-import {MOBILE_PAGES} from '../../../values/variables';
+import {MEDIA_ROOT, MOBILE_PAGES} from '../../../values/variables';
+import {Report} from '../../../../../../../src/app/shared/interfaces/report';
+import {UserService} from '../../../../../../../src/app/services/user.service';
+import {take} from 'rxjs/operators';
 
 @Component({
   selector: 'app-mobile-reports',
@@ -8,13 +11,20 @@ import {MOBILE_PAGES} from '../../../values/variables';
   styleUrls: ['./mobile-reports.component.scss']
 })
 export class MobileReportsComponent implements OnInit {
+  reports: Array<Report>;
+  apiUrl = MEDIA_ROOT;
 
   constructor(
-    private mobilePagesService: MobilePagesService
+    private mobilePagesService: MobilePagesService,
+    private userService: UserService
   ) { }
 
   ngOnInit(): void {
     this.mobilePagesService.setMobilePage(MOBILE_PAGES.REPORTS);
+    this.userService.getReports()
+      .pipe(take(1))
+      .subscribe((data) => {
+        this.reports = data;
+      });
   }
-
 }
