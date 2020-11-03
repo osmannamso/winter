@@ -4,7 +4,7 @@ import {UserService} from '../../../services/user.service';
 import {take} from 'rxjs/operators';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 import {LocalStorageService} from '../../../services/local-storage.service';
-import {COMPANY_KEY, TOKEN_KEY} from '../../../values/local-storage-keys';
+import {COMPANY_KEY, TOKEN_KEY, USER_KEY} from '../../../values/local-storage-keys';
 import {Router} from '@angular/router';
 
 @Component({
@@ -39,6 +39,7 @@ export class AuthModalComponent implements OnInit {
     this.userService.login(this.loginForm)
       .pipe(take(1))
       .subscribe((data) => {
+        this.localStorage.setItem(USER_KEY, data.user);
         this.loginSuccess(data.token);
       }, (err) => {
         this.loginForm.setErrors({incorrect: err.error.detail});

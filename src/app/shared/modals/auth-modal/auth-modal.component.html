@@ -6,10 +6,10 @@
     <div class="auth-cover">
       <form [formGroup]="loginForm" (ngSubmit)="login()">
         <label>
-          <input type="text" formControlName="username" placeholder="+7 (000) 000 00 00" />
+          <input type="text" formControlName="username" placeholder="Логин" />
         </label>
         <label class="display-inline-block m-t-15 w-100">
-          <input type="password" formControlName="password" placeholder="Password" />
+          <input type="password" formControlName="password" placeholder="Пароль" />
         </label>
         <div *ngIf="loginForm.hasError('incorrect')" class="form-error-cover">{{ loginForm.getError('incorrect') }}</div>
         <button type="submit" class="auth-btn">Войти</button>

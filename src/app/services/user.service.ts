@@ -1,14 +1,17 @@
 import {Injectable} from '@angular/core';
-import {Observable} from 'rxjs';
+import {BehaviorSubject, Observable} from 'rxjs';
 import {CustomHttpService} from './custom-http.service';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {LocalStorageService} from './local-storage.service';
-import {TOKEN_KEY} from '../values/local-storage-keys';
+import {COMPANY_KEY, TOKEN_KEY} from '../values/local-storage-keys';
+import {Company} from '../shared/interfaces/company';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
+  companyChanged: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(null);
+
   constructor(
     private http: CustomHttpService,
     private fb: FormBuilder,
@@ -31,9 +34,10 @@ export class UserService {
   }
 
   getChangeCompanyForm(): FormGroup {
+    const company: Company = this.localStorage.getItem(COMPANY_KEY);
     return this.fb.group({
-      name: '',
-      requisites: ''
+      name: company.name,
+      requisites: company.requisites
     });
   }
 
@@ -64,7 +68,7 @@ export class UserService {
   }
 
   changeCompany(formGroup: FormGroup): Observable<any> {
-    return this.http.post('/corp/company/', formGroup.getRawValue());
+    return this.http.put(`/corp/company/${this.localStorage.getItem(COMPANY_KEY).id}/`, formGroup.getRawValue());
   }
 
   getReports(): Observable<any> {

@@ -2,34 +2,34 @@
   <div class="employee-item">
     <div class="employee-main">
       <div class="employee-top">
-        <img src="https://i.pinimg.com/474x/97/46/5e/97465ec1f73b5d7dcbe4fda3b3282492.jpg" />
+        <img [src]="user?.employees[0]?.image ? apiUrl + user?.employees[0]?.image : noAvatar" />
         <div class="employee-info">
           <div class="employee-name">
-            Стив Роджерс
+            {{ user?.employees[0]?.name }} {{ user?.employees[0]?.last_name }}
           </div>
           <div class="employee-job">
-            Маркетолог
+            {{ employeeRuPositions[user?.employees[0]?.position] }}
           </div>
         </div>
       </div>
       <div class="employee-body">
         <h4 class="main-key">Профиль компании</h4>
         <div class="key-value">
-          <span>Название компании:</span> Pillowz.Corp
+          <span>Название компании:</span> {{ company.name }}
         </div>
         <div class="key-value">
-          <span>Реквизиты:</span> 34534112
+          <span>Реквизиты:</span> {{ company.requisites }}
         </div>
         <a routerLink="/user/change-company" class="muted-btn">Редактировать</a>
         <h4 class="main-key">Доступ к кабинету</h4>
         <div class="key-value">
-          <span>Пользователь:</span> Стив Роджерс
+          <span>Пользователь:</span> {{ user?.employees[0]?.name }} {{ user?.employees[0]?.last_name }}
         </div>
         <div class="key-value">
-          <span>Логин:</span> captainamerica
+          <span>Логин:</span> {{ user.username }}
         </div>
         <div class="key-value">
-          <span>Права:</span> Менеджер
+          <span>Права:</span> {{ employeeRuPositions[user?.employees[0]?.position] }}
         </div>
         <a routerLink="/user/employees/create" class="muted-btn">Добавить сотрудника</a>
       </div>
