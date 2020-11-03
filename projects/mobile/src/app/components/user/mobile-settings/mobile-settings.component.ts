@@ -7,7 +7,7 @@ import {Company} from '../../../../../../../src/app/shared/interfaces/company';
 import {User} from '../../../../../../../src/app/shared/interfaces/user';
 import {EMPLOYEE_NO_AVATAR, EMPLOYEE_RU_POSITIONS} from '../../../../../../../src/app/values/variables';
 import {takeUntil} from 'rxjs/operators';
-import {COMPANY_KEY} from '../../../../../../../src/app/values/local-storage-keys';
+import {COMPANY_KEY, USER_KEY} from '../../../../../../../src/app/values/local-storage-keys';
 import {ReplaySubject} from 'rxjs';
 import {LocalStorageService} from '../../../../../../../src/app/services/local-storage.service';
 
@@ -39,6 +39,7 @@ export class MobileSettingsComponent implements OnInit, OnDestroy {
       .subscribe(() => {
         this.getCompanyFromStorage();
       });
+    this.user = this.localStorage.getItem(USER_KEY);
   }
 
   ngOnDestroy(): void {
