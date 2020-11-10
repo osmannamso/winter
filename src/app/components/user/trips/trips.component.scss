@@ -109,6 +109,15 @@
       }
     }
   }
+
+  .expanded-info-last {
+    text-align: center;
+    margin: 0 0 20px;
+
+    .confirm-btn {
+      font-size: 16px;
+    }
+  }
 }
 
 .request-bottom {

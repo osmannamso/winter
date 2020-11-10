@@ -2,7 +2,7 @@ import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 import {FormGroup} from '@angular/forms';
 import {EmployeeService} from '../../../services/employee.service';
-import {EMPLOYEE_DOCUMENT_TYPES, EMPLOYEE_GENDERS, EMPLOYEE_POSITIONS} from '../../../values/variables';
+import {EMPLOYEE_DOCUMENT_TYPES, EMPLOYEE_GENDERS, EMPLOYEE_POSITIONS, INPUT_TYPE_DATE, INPUT_TYPE_TEXT} from '../../../values/variables';
 import {take} from 'rxjs/operators';
 import {EMPLOYEE_CREATE_SUCCESS} from '../../../../../projects/mobile/src/app/values/variables';
 import {MatSnackBar} from '@angular/material/snack-bar';
@@ -58,5 +58,15 @@ export class CreateUserComponent implements OnInit {
           duration: 2000,
         });
       });
+  }
+
+  changeTypeDate(event: any): void {
+    event.target.type = INPUT_TYPE_DATE;
+  }
+
+  changeTypeText(event: any) {
+    if (!event.target.value) {
+      event.target.type = INPUT_TYPE_TEXT;
+    }
   }
 }

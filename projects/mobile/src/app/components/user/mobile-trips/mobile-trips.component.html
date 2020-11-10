@@ -86,14 +86,17 @@
         </div>
       </div>
     </div>
+    <div *ngIf="trip.status == tripStatuses.AWAITING_APPROVAL && user.employees[0].position == employeePositionsEnum.LEADER" class="expanded-info-last">
+      <button type="button" (click)="confirmTrip(i)" class="green-btn confirm-btn">Подтвердить</button>
+    </div>
   </div>
-  <div *ngIf="trip.status == tripStatuses.OFFER" class="request-bottom">
+  <div *ngIf="trip.status == tripStatuses.OFFER || trip.status == tripStatuses.IN_PROCESSING" class="request-bottom">
     Предложения формируется
   </div>
-  <div *ngIf="trip.status == tripStatuses.AWAITING_APPROVAL" class="request-bottom">
-    Предложений нет
-  </div>
-  <div *ngIf="trip.status == tripStatuses.CONFIRMED || trip.status == tripStatuses.IN_PROCESSING" class="request-bottom expand-offers">
+<!--  <div *ngIf="trip.status == tripStatuses.IN_PROCESSING" class="request-bottom">-->
+<!--    Предложений нет-->
+<!--  </div>-->
+  <div *ngIf="trip.status == tripStatuses.CONFIRMED || trip.status == tripStatuses.AWAITING_APPROVAL" class="request-bottom expand-offers">
     <button type="button" (click)="expandTrip(i)" class="expand-btn">
       <span class="icon i-expand-arrow" [class.reversed]="trip.expanded"></span> {{ trip.expanded ? 'Скрыть предложения' : 'Показать предложения' }}
     </button>

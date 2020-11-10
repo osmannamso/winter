@@ -12,10 +12,10 @@
             <span class="">страна, город, аэропорт, вокзал</span>
           </label>
           <label>
-            <input type="date" [formControl]="tripRequestForm.get('trip_date_from')" placeholder="Когда" />
+            <input type="text" (focusin)="changeTypeDate($event)" (focusout)="changeTypeText($event)" [formControl]="tripRequestForm.get('trip_date_from')" placeholder="Когда (дд.мм.гггг)" />
           </label>
           <label class="back-way">
-            <input *ngIf="twoWay" type="date" [formControl]="tripRequestForm.get('trip_date_to')" placeholder="Когда" />
+            <input *ngIf="twoWay" type="text" (focusin)="changeTypeDate($event)" (focusout)="changeTypeText($event)" [formControl]="tripRequestForm.get('trip_date_to')" placeholder="Когда (дд.мм.гггг)" />
             <label>
               <input type="checkbox" [(ngModel)]="twoWay" />
               <span>обратный билет</span>

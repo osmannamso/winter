@@ -1,6 +1,7 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from '@angular/material/dialog';
 import {
+  INPUT_TYPE_DATE, INPUT_TYPE_TEXT,
   TICKET_CLASSES,
   TRIP_OPTIONS,
   TRIP_RESIDENCE_CLASSES,
@@ -8,7 +9,7 @@ import {
   TRIP_TRANSFERS,
   TRIP_VEHICLE_CLASS
 } from '../../../values/variables';
-import {FormGroup} from '@angular/forms';
+import {FormControl, FormGroup} from '@angular/forms';
 import {TripService} from '../../../services/trip.service';
 import {take} from 'rxjs/operators';
 import {CreateUserComponent} from '../../../components/user/create-user/create-user.component';
@@ -64,7 +65,13 @@ export class CreateTripComponent implements OnInit {
 
   nextStep(): void {
     if (this.step == 3) {
-      const employeeIds = this.selectedEmployees.map((employee) => employee.user);
+      if (!this.tripRequestForm.get('trip_date_to') || !this.tripRequestForm.get('trip_date_to').value) {
+        this.tripRequestForm.removeControl('trip_date_to');
+      }
+      if (!this.tripRequestForm.get('hour_amount').value) {
+        this.tripRequestForm.get('hour_amount').setValue(0);
+      }
+      const employeeIds = this.selectedEmployees.map((employee) => employee.id);
       this.tripRequestForm.get('employees').setValue(employeeIds);
       this.tripService.createTripRequest(this.tripRequestForm)
         .pipe(take(1))
@@ -73,6 +80,8 @@ export class CreateTripComponent implements OnInit {
           this.snackBar.open(TRIP_CREATE_SUCCESS, '', {
             duration: 2000,
           });
+        }, () => {
+          this.tripRequestForm.addControl('trip_date_to', new FormControl(''));
         });
     } else {
       this.step += 1;
@@ -104,5 +113,15 @@ export class CreateTripComponent implements OnInit {
 
   removeEmployee(i: number): void {
     this.selectedEmployees.splice(i, 1);
+  }
+
+  changeTypeDate(event: any): void {
+    event.target.type = INPUT_TYPE_DATE;
+  }
+
+  changeTypeText(event: any) {
+    if (!event.target.value) {
+      event.target.type = INPUT_TYPE_TEXT;
+    }
   }
 }

@@ -59,6 +59,15 @@
         }
       }
     }
+
+    .expanded-info-last {
+      margin: 10px 0;
+      text-align: center;
+
+      .confirm-btn {
+        font-size: 14px;
+      }
+    }
   }
 
   .request-top {

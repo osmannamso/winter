@@ -1,7 +1,7 @@
 <div class="modal-overall">
   <div class="modal-header">
     <h2>Новая поездка: <span>шаг {{ step }}/3</span></h2>
-    <button type="button" class="close-btn">
+    <button type="button" (click)="close()" class="close-btn">
       <span class="icon i-cross"></span>
     </button>
   </div>
@@ -18,10 +18,10 @@
             <span>страна, город, аэропорт, вокзал</span>
           </label>
           <label>
-            <input type="date" [formControl]="tripRequestForm.get('trip_date_from')" placeholder="Когда" />
+            <input type="text" (focusin)="changeTypeDate($event)" (focusout)="changeTypeText($event)" [formControl]="tripRequestForm.get('trip_date_from')" placeholder="Когда (дд.мм.гггг)" />
           </label>
           <label class="back-way">
-            <input *ngIf="twoWay" type="date" [formControl]="tripRequestForm.get('trip_date_to')" placeholder="Когда" />
+            <input *ngIf="twoWay" type="text" (focusin)="changeTypeDate($event)" (focusout)="changeTypeText($event)" [formControl]="tripRequestForm.get('trip_date_to')" placeholder="Когда (дд.мм.гггг)" />
             <label>
               <input type="checkbox" [(ngModel)]="twoWay" />
               <span>обратный билет</span>

@@ -5,18 +5,19 @@ export enum TRIP_RESIDENCE_CLASSES {ECONOMY = 'economy_class', MIDDLE = 'middle_
 export enum TRIP_TRANSFERS {FULL = 'full', PARTIAL = 'partial'}
 export enum TRIP_VEHICLE_CLASS {ECONOMY = 'economy_class', BUSINESS = 'business_class', MINIBUS = 'minibus'}
 export enum TRIP_STATUSES {OFFER = 'offer', IN_PROCESSING = 'in_processing', AWAITING_APPROVAL = 'awaiting_approval', CONFIRMED = 'confirmed'}
+export enum EMPLOYEE_POSITIONS_ENUM {LEADER = 'leader', EMPLOYEE = 'employee', MANAGER = 'manager'}
 
 export const TRIP_RU_STATUSES = {
   offer: {
     text: 'Формируем предложения',
     count: 1
   },
-  awaiting_approval: {
-    text: 'Ожидаем согласования',
-    count: 2
-  },
   in_processing: {
     text: 'В обработке',
+    count: 2
+  },
+  awaiting_approval: {
+    text: 'Ожидаем согласования',
     count: 3
   },
   confirmed: {
@@ -86,3 +87,5 @@ export const EMPLOYEE_RU_GENDERS = {
   female: 'женский'
 };
 export const EMPLOYEE_NO_AVATAR = '/assets/images/no-avatar.png';
+export const INPUT_TYPE_TEXT = 'text';
+export const INPUT_TYPE_DATE = 'date';

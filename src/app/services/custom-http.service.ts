@@ -27,6 +27,10 @@ export class CustomHttpService {
     return this.http.put(`${environment.apiUrl}${uri}`, data);
   }
 
+  patch(uri: string, data: any = {}): Observable<any> {
+    return this.http.patch(`${environment.apiUrl}${uri}`, data);
+  }
+
   delete(uri: string, data: any = {}): Observable<any> {
     return this.http.delete(`${environment.apiUrl}${uri}`, {body: data} as any);
   }

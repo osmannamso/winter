@@ -2,6 +2,7 @@ import {Component, Inject, OnInit} from '@angular/core';
 import {MobilePagesService} from '../../../services/mobile-pages.service';
 import {MOBILE_PAGES, TRIP_CREATE_SUCCESS} from '../../../values/variables';
 import {
+  INPUT_TYPE_DATE, INPUT_TYPE_TEXT,
   TICKET_CLASSES,
   TRIP_OPTIONS,
   TRIP_RESIDENCE_CLASSES,
@@ -14,7 +15,7 @@ import {TripService} from '../../../../../../../src/app/services/trip.service';
 import {LocalStorageService} from '../../../../../../../src/app/services/local-storage.service';
 import {EmployeeService} from '../../../../../../../src/app/services/employee.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
-import {FormGroup} from '@angular/forms';
+import {FormControl, FormGroup} from '@angular/forms';
 import {Employee} from '../../../../../../../src/app/shared/interfaces/employee';
 import {EmployeePagination} from '../../../../../../../src/app/shared/interfaces/employee-pagination';
 import {take} from 'rxjs/operators';
@@ -62,7 +63,13 @@ export class MobileCreateTripComponent implements OnInit {
 
   nextStep(): void {
     if (this.step == 3) {
-      const employeeIds = this.selectedEmployees.map((employee) => employee.user);
+      if (!this.tripRequestForm.get('trip_date_to') || !this.tripRequestForm.get('trip_date_to').value) {
+        this.tripRequestForm.removeControl('trip_date_to');
+      }
+      if (!this.tripRequestForm.get('hour_amount').value) {
+        this.tripRequestForm.get('hour_amount').setValue(0);
+      }
+      const employeeIds = this.selectedEmployees.map((employee) => employee.id);
       this.tripRequestForm.get('employees').setValue(employeeIds);
       this.tripService.createTripRequest(this.tripRequestForm)
         .pipe(take(1))
@@ -72,6 +79,8 @@ export class MobileCreateTripComponent implements OnInit {
               duration: 2000,
             });
           });
+        }, () => {
+          this.tripRequestForm.addControl('trip_date_to', new FormControl(''));
         });
     } else {
       this.step += 1;
@@ -106,5 +115,15 @@ export class MobileCreateTripComponent implements OnInit {
 
   removeEmployee(i: number): void {
     this.selectedEmployees.splice(i, 1);
+  }
+
+  changeTypeDate(event: any): void {
+    event.target.type = INPUT_TYPE_DATE;
+  }
+
+  changeTypeText(event: any) {
+    if (!event.target.value) {
+      event.target.type = INPUT_TYPE_TEXT;
+    }
   }
 }

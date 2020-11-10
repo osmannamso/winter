@@ -34,7 +34,7 @@
       </label>
       <h4 class="label-text m-t-30">Дата рождения</h4>
       <label>
-        <input type="date" formControlName="born_date" placeholder="Отчество" class="no-border-input" />
+        <input type="text" (focusin)="changeTypeDate($event)" (focusout)="changeTypeText($event)" formControlName="born_date" placeholder="дд.мм.гггг" class="no-border-input" />
       </label>
     </div>
     <div class="main-info-cover --bottom">

@@ -5,7 +5,12 @@ import {take} from 'rxjs/operators';
 import {EmployeeService} from '../../../../../../../src/app/services/employee.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {FormGroup} from '@angular/forms';
-import {EMPLOYEE_DOCUMENT_TYPES, EMPLOYEE_GENDERS, EMPLOYEE_POSITIONS} from '../../../../../../../src/app/values/variables';
+import {
+  EMPLOYEE_DOCUMENT_TYPES,
+  EMPLOYEE_GENDERS,
+  EMPLOYEE_POSITIONS,
+  INPUT_TYPE_DATE, INPUT_TYPE_TEXT
+} from '../../../../../../../src/app/values/variables';
 import {Router} from '@angular/router';
 
 @Component({
@@ -57,5 +62,15 @@ export class MobileCreateUserComponent implements OnInit {
           });
         });
       });
+  }
+
+  changeTypeDate(event: any): void {
+    event.target.type = INPUT_TYPE_DATE;
+  }
+
+  changeTypeText(event: any) {
+    if (!event.target.value) {
+      event.target.type = INPUT_TYPE_TEXT;
+    }
   }
 }
