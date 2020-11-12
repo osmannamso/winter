@@ -4,11 +4,13 @@ import { MobileLandingComponent } from '../../components/client/mobile-landing/m
 import {MatDialogModule} from '@angular/material/dialog';
 import {AuthModalComponent} from '../../../../../../src/app/shared/modals/auth-modal/auth-modal.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {RegRequestComponent} from '../../../../../../src/app/components/client/reg-request/reg-request.component';
 
 @NgModule({
   declarations: [
     MobileLandingComponent,
-    AuthModalComponent
+    AuthModalComponent,
+    RegRequestComponent
   ],
   imports: [
     CommonModule,

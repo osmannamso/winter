@@ -10,6 +10,7 @@ import {Router} from '@angular/router';
 import {FormGroup} from '@angular/forms';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {LANDING_REQUEST_SUCCESS} from '../../../../../projects/mobile/src/app/values/variables';
+import {RegRequestComponent} from '../reg-request/reg-request.component';
 
 declare var ymaps: any;
 
@@ -28,7 +29,7 @@ export class LandingComponent implements OnInit, AfterViewInit {
     private dialog: MatDialog,
     private userService: UserService,
     private router: Router,
-    private snackBar: MatSnackBar
+    private modal: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -90,20 +91,6 @@ export class LandingComponent implements OnInit, AfterViewInit {
   }
 
   scrollToRequest(): void {
-    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
-  }
-
-  createRequest(): void {
-    this.requestForm.markAllAsTouched();
-    if (this.requestForm.valid) {
-      this.siteDataService.createRequest(this.requestForm)
-        .pipe(take(1))
-        .subscribe(() => {
-          this.snackBar.open(LANDING_REQUEST_SUCCESS, '', {
-            duration: 2000,
-          });
-          this.requestForm = this.siteDataService.getRequestForm();
-        });
-    }
+    this.modal.open(RegRequestComponent);
   }
 }

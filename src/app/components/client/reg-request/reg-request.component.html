@@ -1,0 +1,30 @@
+<div class="reg-request-cover">
+  <form [formGroup]="requestForm" (ngSubmit)="createRequest()">
+    <h3>Оставьте заявку и мы <span>с вами свяжемся!</span></h3>
+    <label>
+      Название компании
+      <input type="text" formControlName="company_name" />
+    </label>
+    <label>
+      Имя
+      <input type="text" formControlName="name" />
+    </label>
+    <label>
+      Номер телефона
+      <input type="text" formControlName="phone" />
+    </label>
+    <label>
+      Эл. почта
+      <input type="text" formControlName="email" />
+      <div *ngIf="requestForm.get('email').touched && requestForm.get('email').hasError('email')" class="form-error-cover">Введите корректную почту</div>
+    </label>
+    <button type="submit">Отправить</button>
+  </form>
+  <div class="request-bottom">
+    <a href="tel: +77470940501" class="with-tel">
+      <img src="/assets/images/phone-call.png" />
+      +7 (747) 094 05 01
+    </a>
+    <a class="with-offer">Оферта</a>
+  </div>
+</div>
