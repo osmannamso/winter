@@ -51,7 +51,7 @@ export class LandingComponent implements OnInit, AfterViewInit {
       }, {
         iconLayout: 'default#imageWithContent',
         // Custom image for the placemark icon.
-        iconImageHref: '/assets/images/logo-placemark.png',
+        iconImageHref: '/assets/icons/placemark.svg',
         // The size of the placemark.
         iconImageSize: [48, 48],
         /**

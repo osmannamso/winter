@@ -1,7 +1,7 @@
 export const MOBILE_PAGES = {
   DEFAULT: {
     backBtn: null,
-    text: 'Pillowz'
+    text: 'Biz-Trip'
   },
   TRIPS: {
     backBtn: null,
@@ -67,4 +67,4 @@ export const CHANGE_COMPANY_SUCCESS = 'Компания успешно изме�
 export const NOT_AUTHORIZED_MESSAGE = 'Вы не авторизованы';
 export const SOME_ERRORS_MESSAGE = 'Произошла ошибка';
 
-export const MEDIA_ROOT = 'http://admin.corp.byz-trip.kz';
+export const MEDIA_ROOT = 'http://admin.corp.biz-trip.kz';

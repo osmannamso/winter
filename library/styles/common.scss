@@ -727,6 +727,15 @@ app-create-user, app-mobile-create-user {
   }
 }
 
+.main-top-cover {
+  .foreign-link {
+    display: inline-block;
+    margin: 20px 0 0;
+    font-size: 20px;
+    color: map-get($purple-palette, 500);
+  }
+}
+
 @media (max-width: 679px) {
   app-user {
     padding: 50px 0 70px;

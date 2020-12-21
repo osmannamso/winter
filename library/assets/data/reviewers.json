@@ -1,21 +1,21 @@
 [
   {
-    "name": "Айжан Мусаева",
-    "avatar": "https://i1.sndcdn.com/avatars-000635920869-0p9rs0-t500x500.jpg",
+    "name": "Арман Мусаев",
+    "avatar": "/assets/images/arman.jpg",
     "text": "Классный сервис! Техническая поддержка быстро обрабатывают запрос! Спасибо за качественный продукт.",
     "logo": "/assets/images/kaspi-logo.png",
     "job": "HR-менеджер"
   },
   {
     "name": "Алия Медеуова",
-    "avatar": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/412dcb7c-3831-4329-b94a-8551655acb08/d4cxe8d-7a548d6e-6e5a-4a3d-9ca7-1c2cce1051ab.jpg/v1/fill/w_200,h_200,q_75,strp/scarlett_johansson_avatar_icon_by_fr1stys_d4cxe8d-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3siaGVpZ2h0IjoiPD0yMDAiLCJwYXRoIjoiXC9mXC80MTJkY2I3Yy0zODMxLTQzMjktYjk0YS04NTUxNjU1YWNiMDhcL2Q0Y3hlOGQtN2E1NDhkNmUtNmU1YS00YTNkLTljYTctMWMyY2NlMTA1MWFiLmpwZyIsIndpZHRoIjoiPD0yMDAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.Im-0FBdFva4C9Z2bJaRa-Nohk5rPnqCCCD-zyCDegYI",
+    "avatar": "/assets/images/aliya.jpg",
     "text": "Крутое приложение! Пришли пуш уведомления, где была показана вся информация по трансферу, заселению в отель! В целом, удобная штука, буду советовать друзьям!",
     "logo": "/assets/images/kolesa-logo.png",
     "job": "HR-менеджер"
   },
   {
     "name": "Аман Кайыпбеков",
-    "avatar": "https://avatarfiles.alphacoders.com/139/139827.jpg",
+    "avatar": "/assets/images/aman.jpg",
     "text": "Быстро обработали запрос! Сэкномили кучу времени на трансфер, брони отелей и прочих вопросов!",
     "logo": "/assets/images/krisha-logo.png",
     "job": "Менеджер по продажам"
